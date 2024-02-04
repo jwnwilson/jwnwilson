@@ -56,15 +56,19 @@ const Cpu = (props) => {
   )
 }
 
-const Circuits = (props) => {
-  const startX = props.startX || 0;
-  const startY = props.startY || 0; 
-  const points = startX + "," + startY + " " + (props.points || "")
+const Circuit = (props) => {
+  const { startX, startY } = props;
+  let circuitPoints = `${startX},${startY} `;
+  let lastPoints: Array<number> = [startX, startY];
+  props.points.forEach(points => {
+    lastPoints = [startX + points[0], startY + points[1]];
+    circuitPoints += `${lastPoints[0]},${lastPoints[1]} `
+  });
   return (
-    <svg className="absolute h-screen w-full" style={{ height: "100%", width: "100%" }}>
-      <polyline points={points} style={{ fill: "none", stroke: "#99C37A", strokeWidth: 3 }} />
-      <circle cx={startX} cy={startY} r={10} fill="#99823D" />
-      <circle cx={startX} cy={startY} r={6} fill="black" />
+    <svg className="absolute h-screen w-full" style={{ height: "100%", width: "100%", overflow: "visible" }}>
+      <polyline points={circuitPoints} style={{ fill: "none", stroke: "#99C37A", strokeWidth: 4 }} />
+      <circle cx={lastPoints[0]} cy={lastPoints[1]} r={8} fill="#99823D" />
+      <circle cx={lastPoints[0]} cy={lastPoints[1]} r={5} fill="black" />
     </svg>
   )
 }
@@ -103,8 +107,39 @@ function App() {
             </div>
           </Cpu>
         </div>
-        <Circuits startX={360} startY={255} points={"360,255 388,280 388,310"}></Circuits>
-        <Circuits startX={385} startY={250} points={"385,250 403,270 403,310"}></Circuits>
+        <Circuit startX={387} startY={300} points={[[0,-15], [-40,-30], [-60,-30]]}></Circuit>
+        <Circuit startX={402} startY={300} points={[[0,-20], [-40,-35], [-40,-50]]}></Circuit>
+        <Circuit startX={417} startY={300} points={[[0,-25], [-40,-40], [-40,-55]]}></Circuit>
+        <Circuit startX={432} startY={300} points={[[0,-30], [-40,-45], [-40,-60]]}></Circuit>
+        <Circuit startX={447} startY={300} points={[[0,-35], [-40,-50], [-40,-80], [-205,-175]]}></Circuit>
+        <Circuit startX={462} startY={300} points={[[0,-40], [-40,-55], [-40,-85], [-220,-190]]}></Circuit>
+        <Circuit startX={477} startY={300} points={[[0,-45], [-40,-60], [-40,-90], [-235,-205]]}></Circuit>
+        <Circuit startX={492} startY={300} points={[[0,-30], [0,-45], [0,-60]]}></Circuit>
+        <Circuit startX={507} startY={300} points={[[0,-20], [0,-35]]}></Circuit>
+        <Circuit startX={522} startY={300} points={[[0,-15], [15,-30], [15,-45]]}></Circuit>
+        <Circuit startX={537} startY={300} points={[[0,-15], [15,-30], [15,-55]]}></Circuit>
+        <Circuit startX={552} startY={300} points={[[0,-15], [15,-30], [15,-45]]}></Circuit>
+        <Circuit startX={567} startY={300} points={[[0,-15], [45,-55], [45,-60]]}></Circuit>
+        <Circuit startX={582} startY={300} points={[[0,-15], [45,-55], [45,-75]]}></Circuit>
+        <Circuit startX={597} startY={300} points={[[0,-15], [45,-55], [45,-60]]}></Circuit>
+        <Circuit startX={612} startY={300} points={[[0,-15], [25,-35], [45,-35]]}></Circuit>
+        {/*  */}
+        <Circuit startX={387} startY={615} points={[[0,15], [-40,30], [-60,30]]}></Circuit>
+        <Circuit startX={402} startY={615} points={[[0,20], [-40,35], [-40,50]]}></Circuit>
+        <Circuit startX={417} startY={615} points={[[0,25], [-40,40], [-40,55]]}></Circuit>
+        <Circuit startX={432} startY={615} points={[[0,30], [-40,45], [-40,60]]}></Circuit>
+        <Circuit startX={447} startY={615} points={[[0,35], [-40,50], [-40,80], [-205,175]]}></Circuit>
+        <Circuit startX={462} startY={615} points={[[0,40], [-40,55], [-40,85], [-220,190]]}></Circuit>
+        <Circuit startX={477} startY={615} points={[[0,45], [-40,60], [-40,90], [-235,205]]}></Circuit>
+        <Circuit startX={492} startY={615} points={[[0,30], [0,45], [0,60]]}></Circuit>
+        <Circuit startX={507} startY={615} points={[[0,20], [0,35]]}></Circuit>
+        <Circuit startX={522} startY={615} points={[[0,15], [15,30], [15,45]]}></Circuit>
+        <Circuit startX={537} startY={615} points={[[0,15], [15,30], [15,55]]}></Circuit>
+        <Circuit startX={552} startY={615} points={[[0,15], [15,30], [15,45]]}></Circuit>
+        <Circuit startX={567} startY={615} points={[[0,15], [45,55], [45,60]]}></Circuit>
+        <Circuit startX={582} startY={615} points={[[0,15], [45,55], [45,75]]}></Circuit>
+        <Circuit startX={597} startY={615} points={[[0,15], [45,55], [45,60]]}></Circuit>
+        <Circuit startX={612} startY={615} points={[[0,15], [25,35], [45,35]]}></Circuit>
       </div>
     </div>
   )
