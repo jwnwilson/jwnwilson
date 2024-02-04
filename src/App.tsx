@@ -92,9 +92,11 @@ const Diode = (props) => {
   const rotate = props.rotate || 0;
   const diodeClassNames = "flex justify-center bg-zinc-400 " + props.classNames
   return (
-    <div id="diode" className="absolute" style={{left: left, top: top, rotate: rotate }}>
-      <div className={diodeClassNames} style={{ height: height + "px", width: width + "px"}}>
-        <div className={`flex bg-${colour}`} style={{ height: height + "px", width: width - middleLength + "px", left: left, top: top}}>
+    <div id="diode" className="absolute">
+      <div className="absolute" style={{left: left, top: top, rotate: rotate }}>
+        <div className={diodeClassNames} style={{ height: height + "px", width: width + "px"}}>
+          <div className={`flex bg-${colour}`} style={{ height: height + "px", width: width - middleLength + "px", left: left, top: top}}>
+          </div>
         </div>
       </div>
     </div>
@@ -169,10 +171,10 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Diode width={50} height={25} left={525} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
-        <Diode width={50} height={25} left={575} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
-        <Diode width={50} height={25} left={625} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
-        <Diode width={50} height={25} left={675} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
+        <Diode width={50} height={25} left={400} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
+        <Diode width={50} height={25} left={450} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
+        <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
+        <Diode width={50} height={25} left={550} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
         {/* top circuits */}
         <Circuit startX={387} startY={300} points={[[0, -15], [-40, -30], [-40, -30]]}></Circuit>
         <Circuit startX={402} startY={300} points={[[0, -20], [-40, -35], [-40, -50]]}></Circuit>
@@ -212,9 +214,9 @@ function App() {
         <Circuit startX={345} startY={360} points={[[-20, 0], [-35, -40], [-50, -40]]}></Circuit>
         <Circuit startX={345} startY={375} points={[[-25, 0], [-40, -40], [-55, -40]]}></Circuit>
         <Circuit startX={345} startY={390} points={[[-30, 0], [-45, -40], [-60, -40]]}></Circuit>
-        <Circuit startX={345} startY={405} points={[[-45, 0], [-70, 40], [-80, 40], [-155, 160]]}></Circuit>
-        <Circuit startX={345} startY={420} points={[[-40, 0], [-65, 40], [-75, 40], [-155, 165]]}></Circuit>
-        <Circuit startX={345} startY={435} points={[[-35, 0], [-60, 40], [-70, 40], [-155, 170]]}></Circuit>
+        <Circuit startX={345} startY={405} points={[[-45, 0], [-70, 40], [-155, 160]]}></Circuit>
+        <Circuit startX={345} startY={420} points={[[-40, 0], [-65, 40], [-155, 165]]}></Circuit>
+        <Circuit startX={345} startY={435} points={[[-35, 0], [-60, 40], [-155, 170]]}></Circuit>
         <Circuit startX={345} startY={450} points={[[-30, 0], [-25, 0]]}></Circuit>
         <Circuit startX={345} startY={465} points={[[-20, 0], [-35, 0]]}></Circuit>
         <Circuit startX={345} startY={480} points={[[-15, 0], [-35, 30], [-55, 30]]}></Circuit>
@@ -226,9 +228,9 @@ function App() {
         <Circuit startX={345} startY={570} points={[[-10, 0], [-25, 25], [-25, 45]]}></Circuit>
         {/* right circuits */}
         <Circuit startX={655} startY={345} points={[[15, 0], [30, -40], [30, -60]]}></Circuit>
-        <Circuit startX={655} startY={360} points={[[20, 0], [35, -40], [50, -40]]}></Circuit>
-        <Circuit startX={655} startY={375} points={[[25, 0], [40, -40], [55, -40]]}></Circuit>
-        <Circuit startX={655} startY={390} points={[[30, 0], [45, -40], [60, -40]]}></Circuit>
+        <Circuit startX={655} startY={360} points={[[20, 0], [45, -40], [70, -40]]}></Circuit>
+        <Circuit startX={655} startY={375} points={[[25, 0], [50, -40], [75, -40]]}></Circuit>
+        <Circuit startX={655} startY={390} points={[[30, 0], [55, -40], [80, -40]]}></Circuit>
         <Circuit startX={655} startY={405} points={[[35, 0], [60, -40], [95, -40], [160, -160]]}></Circuit>
         <Circuit startX={655} startY={420} points={[[40, 0], [65, -40], [100, -40], [160, -155]]}></Circuit>
         <Circuit startX={655} startY={435} points={[[45, 0], [70, -40], [105, -40], [160, -150]]}></Circuit>
