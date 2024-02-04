@@ -87,7 +87,7 @@ const Circuit = (props) => {
 }
 
 const Diode = (props) => {
-  const { left, top, height, width, colour } = props;
+  const { left, top, height, width, color } = props;
   const middleLength = width * 0.4;
   const rotate = props.rotate || 0;
   const diodeClassNames = "flex justify-center bg-zinc-400 " + props.classNames
@@ -95,7 +95,7 @@ const Diode = (props) => {
     <div id="diode" className="absolute">
       <div className="absolute" style={{left: left, top: top, rotate: rotate }}>
         <div className={diodeClassNames} style={{ height: height + "px", width: width + "px"}}>
-          <div className={`flex bg-${colour}`} style={{ height: height + "px", width: width - middleLength + "px", left: left, top: top}}>
+          <div style={{ height: height + "px", width: width - middleLength + "px", left: left, top: top, backgroundColor: color}}>
           </div>
         </div>
       </div>
@@ -171,10 +171,10 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Diode width={50} height={25} left={400} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
-        <Diode width={50} height={25} left={450} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
-        <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
-        <Diode width={50} height={25} left={550} top={50} rotate={"90deg"} colour={"orange-400"}></Diode>
+        <Diode width={50} height={25} left={400} top={50} rotate={"90deg"} color={"orange"}></Diode>
+        <Diode width={50} height={25} left={450} top={50} rotate={"90deg"} color={"orange"}></Diode>
+        <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} color={"orange"}></Diode>
+        <Diode width={50} height={25} left={550} top={50} rotate={"90deg"} color={"orange"}></Diode>
         {/* top circuits */}
         <Circuit startX={387} startY={300} points={[[0, -15], [-40, -30], [-40, -30]]}></Circuit>
         <Circuit startX={402} startY={300} points={[[0, -20], [-40, -35], [-40, -50]]}></Circuit>
