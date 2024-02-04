@@ -107,7 +107,8 @@ function App() {
             </div>
           </Cpu>
         </div>
-        <Circuit startX={387} startY={300} points={[[0,-15], [-40,-30], [-60,-30]]}></Circuit>
+        {/* top circuits */}
+        <Circuit startX={387} startY={300} points={[[0,-15], [-40,-30], [-40,-30]]}></Circuit>
         <Circuit startX={402} startY={300} points={[[0,-20], [-40,-35], [-40,-50]]}></Circuit>
         <Circuit startX={417} startY={300} points={[[0,-25], [-40,-40], [-40,-55]]}></Circuit>
         <Circuit startX={432} startY={300} points={[[0,-30], [-40,-45], [-40,-60]]}></Circuit>
@@ -122,15 +123,15 @@ function App() {
         <Circuit startX={567} startY={300} points={[[0,-15], [45,-55], [45,-60]]}></Circuit>
         <Circuit startX={582} startY={300} points={[[0,-15], [45,-55], [45,-75]]}></Circuit>
         <Circuit startX={597} startY={300} points={[[0,-15], [45,-55], [45,-60]]}></Circuit>
-        <Circuit startX={612} startY={300} points={[[0,-15], [25,-35], [45,-35]]}></Circuit>
-        {/*  */}
-        <Circuit startX={387} startY={615} points={[[0,15], [-40,30], [-60,30]]}></Circuit>
+        <Circuit startX={612} startY={300} points={[[0,-15], [15,-25], [35,-25]]}></Circuit>
+        {/* bottom circuits */}
+        <Circuit startX={387} startY={615} points={[[0,15], [-40,30], [-40,30]]}></Circuit>
         <Circuit startX={402} startY={615} points={[[0,20], [-40,35], [-40,50]]}></Circuit>
         <Circuit startX={417} startY={615} points={[[0,25], [-40,40], [-40,55]]}></Circuit>
         <Circuit startX={432} startY={615} points={[[0,30], [-40,45], [-40,60]]}></Circuit>
-        <Circuit startX={447} startY={615} points={[[0,35], [-40,50], [-40,80], [-205,175]]}></Circuit>
-        <Circuit startX={462} startY={615} points={[[0,40], [-40,55], [-40,85], [-220,190]]}></Circuit>
-        <Circuit startX={477} startY={615} points={[[0,45], [-40,60], [-40,90], [-235,205]]}></Circuit>
+        <Circuit startX={447} startY={615} points={[[0,35], [-40,50], [-40,90], [95,175]]}></Circuit>
+        <Circuit startX={462} startY={615} points={[[0,40], [-40,55], [-40,85], [100,175]]}></Circuit>
+        <Circuit startX={477} startY={615} points={[[0,45], [-40,60], [-40,80], [105,175]]}></Circuit>
         <Circuit startX={492} startY={615} points={[[0,30], [0,45], [0,60]]}></Circuit>
         <Circuit startX={507} startY={615} points={[[0,20], [0,35]]}></Circuit>
         <Circuit startX={522} startY={615} points={[[0,15], [15,30], [15,45]]}></Circuit>
@@ -139,7 +140,41 @@ function App() {
         <Circuit startX={567} startY={615} points={[[0,15], [45,55], [45,60]]}></Circuit>
         <Circuit startX={582} startY={615} points={[[0,15], [45,55], [45,75]]}></Circuit>
         <Circuit startX={597} startY={615} points={[[0,15], [45,55], [45,60]]}></Circuit>
-        <Circuit startX={612} startY={615} points={[[0,15], [25,35], [45,35]]}></Circuit>
+        <Circuit startX={612} startY={615} points={[[0,15], [15,25], [35,25]]}></Circuit>
+        {/* left circuits */}
+        <Circuit startX={345} startY={345} points={[[-15, 0], [-30, -40], [-30, -60]]}></Circuit>
+        <Circuit startX={345} startY={360} points={[[-20, 0], [-35, -40], [-50, -40]]}></Circuit>
+        <Circuit startX={345} startY={375} points={[[-25, 0], [-40, -40], [-55, -40]]}></Circuit>
+        <Circuit startX={345} startY={390} points={[[-30, 0], [-45, -40], [-60, -40]]}></Circuit>
+        <Circuit startX={345} startY={405} points={[[-45, 0], [-70, 40], [-100,40], [-225,175]]}></Circuit>
+        <Circuit startX={345} startY={420} points={[[-40, 0], [-65, 40], [-100,40], [-225,180]]}></Circuit>
+        <Circuit startX={345} startY={435} points={[[-35, 0], [-60, 40], [-100,40], [-225,185]]}></Circuit>
+        <Circuit startX={345} startY={450} points={[[-30, 0], [-25, 0]]}></Circuit>
+        <Circuit startX={345} startY={465} points={[[-20, 0], [-35, 0]]}></Circuit>
+        <Circuit startX={345} startY={480} points={[[-15, 0], [-35,30], [-55,30]]}></Circuit>
+        <Circuit startX={345} startY={495} points={[[-15, 0], [-35,30], [-45,30]]}></Circuit>
+        <Circuit startX={345} startY={510} points={[[-15, 0], [-35,30], [-55,30]]}></Circuit>
+        <Circuit startX={345} startY={525} points={[[-15, 0], [-55,60], [-70,60]]}></Circuit>
+        <Circuit startX={345} startY={540} points={[[-15, 0], [-55,60], [-80,60]]}></Circuit>
+        <Circuit startX={345} startY={555} points={[[-15, 0], [-55,60], [-70,60]]}></Circuit>
+        <Circuit startX={345} startY={570} points={[[-10, 0], [-25,25], [-25,45]]}></Circuit>
+        {/* right circuits */}
+        <Circuit startX={655} startY={345} points={[[15, 0], [30, -40], [30, -60]]}></Circuit>
+        <Circuit startX={655} startY={360} points={[[20, 0], [35, -40], [50, -40]]}></Circuit>
+        <Circuit startX={655} startY={375} points={[[25, 0], [40, -40], [55, -40]]}></Circuit>
+        <Circuit startX={655} startY={390} points={[[30, 0], [45, -40], [60, -40]]}></Circuit>
+        <Circuit startX={655} startY={405} points={[[45, 0], [70, 40], [95,40], [225,-185]]}></Circuit>
+        <Circuit startX={655} startY={420} points={[[40, 0], [65, 40], [100,40], [225,-180]]}></Circuit>
+        <Circuit startX={655} startY={435} points={[[35, 0], [60, 40], [105,40], [225,-175]]}></Circuit>
+        <Circuit startX={655} startY={450} points={[[30, 0], [25, 0]]}></Circuit>
+        <Circuit startX={655} startY={465} points={[[20, 0], [35, 0]]}></Circuit>
+        <Circuit startX={655} startY={480} points={[[15, 0], [35,30], [55,30]]}></Circuit>
+        <Circuit startX={655} startY={495} points={[[15, 0], [35,30], [45,30]]}></Circuit>
+        <Circuit startX={655} startY={510} points={[[15, 0], [35,30], [55,30]]}></Circuit>
+        <Circuit startX={655} startY={525} points={[[15, 0], [55,60], [70,60]]}></Circuit>
+        <Circuit startX={655} startY={540} points={[[15, 0], [55,60], [80,60]]}></Circuit>
+        <Circuit startX={655} startY={555} points={[[15, 0], [55,60], [70,60]]}></Circuit>
+        <Circuit startX={655} startY={570} points={[[10, 0], [25,25], [25,45]]}></Circuit>
       </div>
     </div>
   )
