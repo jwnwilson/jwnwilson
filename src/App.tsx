@@ -40,10 +40,10 @@ const Cpu = (props) => {
     return pinsArray;
   }
 
-  let topPins = generateVerticalPins("absolute h-7 -top-7 bg-zinc-400 rounded");
-  let bottomPins = generateVerticalPins("absolute h-7 -bottom-7 bg-zinc-400 rounded");
-  let leftPins = generateHorizontalPins("absolute h-2 w-7 -top-1 bg-zinc-400 rounded", "left");
-  let rightPins = generateHorizontalPins("absolute h-2 w-7 -top-1 bg-zinc-400 rounded", "right");
+  let topPins = generateVerticalPins("absolute h-7 -top-7 bg-zinc-400 rounded-[2px]");
+  let bottomPins = generateVerticalPins("absolute h-7 -bottom-7 bg-zinc-400 rounded-[2px]");
+  let leftPins = generateHorizontalPins("absolute h-2 w-7 -top-1 bg-zinc-400 rounded-[2px]", "left");
+  let rightPins = generateHorizontalPins("absolute h-2 w-7 -top-1 bg-zinc-400 rounded-[2px]", "right");
   const cpuClassNames = "flex flex-col relative border-2 border-black bg-zinc-900 py-8 px-8 rounded-xl shadow-lg space-y-2 items-center " + props.classNames
   const cpuComponent = (
     <div className={cpuClassNames} style={{ height: height + "px", width: width + "px", left: left, top: top }}>
@@ -67,8 +67,56 @@ const Cpu = (props) => {
 
 }
 
+const SemiConductor = (props) => {
+  const width = props.width;
+  const height = props.height;
+  const rotate = props.rotate;
+  const absolute = props.absolute || false;
+  const pinWidth = 5;
+  const pinGap = 10;
+  const horizontalPinNum = Math.floor((height -5) / pinGap);
+  const left = props.left || 0;
+  const top = props.top || 0;
+
+  const generateHorizontalPins = (classNames: string, direction: string) => {
+    let pinsArray = [];
+    for (let i = 0; i < horizontalPinNum; i++) {
+      const pos = 5 + (i * pinGap);
+      let pinStyle = { height: pinWidth + "px", top: pos + "px" };
+      pinStyle[direction] = "-10px";
+      pinsArray.push(
+        <div className={classNames} style={pinStyle}></div>
+      )
+    }
+    return pinsArray;
+  }
+
+  let leftPins = generateHorizontalPins("absolute h-2 w-3 -top-1 bg-zinc-400 rounded-[1px]", "left");
+  let rightPins = generateHorizontalPins("absolute h-2 w-3 -top-1 bg-zinc-400 rounded-[1px]", "right");
+  const cpuClassNames = "flex flex-col relative border-2 border-black bg-zinc-900 rounded shadow-lg items-center " + props.classNames
+  const cpuComponent = (
+    <div className={cpuClassNames} style={{ height: height + "px", width: width + "px", left: left, top: top, rotate: rotate }}>
+      {leftPins}
+      {rightPins}
+      {props.children}
+    </div>
+  )
+
+  if (absolute) {
+    return (
+      <div className="absolute">
+        {cpuComponent}
+      </div>
+    )
+  } else {
+    return cpuComponent
+  }
+
+}
+
 const Circuit = (props) => {
-  const { startX, startY } = props;
+  const { startX, startY, width } = props;
+  const strokeWidth = width || 4;
   let circuitPoints = `${startX},${startY} `;
   let lastPoints: Array<number> = [startX, startY];
   props.points.forEach(points => {
@@ -78,9 +126,27 @@ const Circuit = (props) => {
   return (
     <div className="absolute">
       <svg style={{ height: "100%", width: "100%", overflow: "visible" }}>
-        <polyline points={circuitPoints} style={{ fill: "none", stroke: "#99C37A", strokeWidth: 4 }} />
+        <polyline points={circuitPoints} style={{ fill: "none", stroke: "#99C37A", strokeWidth: strokeWidth }} />
         <circle cx={lastPoints[0]} cy={lastPoints[1]} r={8} fill="#99823D" />
         <circle cx={lastPoints[0]} cy={lastPoints[1]} r={5} fill="black" />
+      </svg>
+    </div>
+  )
+}
+
+const Wire = (props) => {
+  const { startX, startY, width } = props;
+  const strokeWidth = width || 4;
+  let circuitPoints = `${startX},${startY} `;
+  let lastPoints: Array<number> = [startX, startY];
+  props.points.forEach(points => {
+    lastPoints = [startX + points[0], startY + points[1]];
+    circuitPoints += `${lastPoints[0]},${lastPoints[1]} `
+  });
+  return (
+    <div className="absolute">
+      <svg style={{ height: "100%", width: "100%", overflow: "visible" }}>
+        <polyline points={circuitPoints} style={{ fill: "none", stroke: "#99C37A", strokeWidth: strokeWidth }} />
       </svg>
     </div>
   )
@@ -171,10 +237,34 @@ function App() {
             </div>
           </div>
         </Cpu>
+        <SemiConductor width={40} height={50} top={160} left={610} absolute={true} rotate={"90deg"}/>
+        <SemiConductor width={40} height={50} top={690} left={350} absolute={true} rotate={"90deg"} />
+        {/* Diode group 1 */}
+        <Circuit startX={410} startY={35} points={[[190, 0]]} width={8}/>
+        <Circuit startX={590} startY={90} points={[[-180, 0], [-300, -75],[-530, -75]]} width={8}/>
         <Diode width={50} height={25} left={400} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={450} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={550} top={50} rotate={"90deg"} color={"orange"}></Diode>
+        {/* Diode group 2 */}
+        <Circuit startX={217} startY={195} points={[[0, 115], [-50, 140], [-165, 140]]} width={8}></Circuit>
+        <Diode width={50} height={20} left={220} top={200} color={"black"}></Diode>
+        <Diode width={50} height={20} left={220} top={225} color={"black"}></Diode>
+        <Diode width={50} height={20} left={220} top={250} color={"black"}></Diode>
+        <Diode width={50} height={20} left={220} top={275} color={"black"}></Diode>
+        {/* Diode group3 */}
+        <Circuit startX={50} startY={285} points={[[125, 0]]} width={8}></Circuit>
+        <Diode width={50} height={20} left={50} top={300} rotate={"90deg"} color={"orange"}></Diode>
+        <Diode width={50} height={20} left={75} top={300} rotate={"90deg"} color={"orange"}></Diode>
+        <Diode width={50} height={20} left={100} top={300} rotate={"90deg"} color={"orange"}></Diode>
+        <Diode width={50} height={20} left={125} top={300} rotate={"90deg"} color={"orange"}></Diode>
+        {/* Diode group3 */}
+        <Circuit startX={800} startY={650} points={[[0, -125]]} width={8}></Circuit>
+        <Circuit startX={750} startY={550} points={[[0, 100], [-20, 115], [-75, 115]]} width={8}></Circuit>
+        <Diode width={50} height={20} left={750} top={550} color={"orange"}></Diode>
+        <Diode width={50} height={20} left={750} top={575} color={"orange"}></Diode>
+        <Diode width={50} height={20} left={750} top={600} color={"orange"}></Diode>
+        <Diode width={50} height={20} left={750} top={625} color={"orange"}></Diode>
         {/* top circuits */}
         <Circuit startX={387} startY={300} points={[[0, -15], [-40, -30], [-40, -30]]}></Circuit>
         <Circuit startX={402} startY={300} points={[[0, -20], [-40, -35], [-40, -50]]}></Circuit>
@@ -243,6 +333,7 @@ function App() {
         <Circuit startX={655} startY={540} points={[[15, 0], [55, 60], [80, 60]]}></Circuit>
         <Circuit startX={655} startY={555} points={[[15, 0], [55, 60], [70, 60]]}></Circuit>
         <Circuit startX={655} startY={570} points={[[10, 0], [25, 25], [25, 45]]}></Circuit>
+        
       </div>
     </div>
   )
