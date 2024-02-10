@@ -106,9 +106,9 @@ const Diode = (props) => {
 function App() {
 
   return (
-    <div className="flex h-screen justify-center bg-emerald-900">
-      <div className="flex h-screen min-w-[1000px]">
-        <Cpu width={250} height={250} classNames="m-auto" absolute={false}>
+    <div className="flex h-screen justify-center items-center overflow-hidden bg-emerald-900">
+      <div className="flex min-w-[1000px] min-h-[900px]">
+        <Cpu width={250} height={250} top={332} left={375} absolute={true}>
           <div className="h-24 space-y-0.5">
             <img className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
           </div>
