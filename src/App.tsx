@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import {
   Button,
   Dialog,
@@ -13,6 +14,15 @@ import Cpu from './components/Cpu';
 import SemiConductor from './components/Semiconductor';
 import Circuit from './components/Circuit';
 import Diode from './components/Diode';
+
+const OverviewMarkdown = `
+I'm a full stack Principle Engineer able to jump into any part of the tech stack. My technologies I specialise in are:
+
+* Python / Typescript
+* Backend development
+* Infrastructure / Terraform
+* Dev Ops / Automation
+`
 
 
 function App() {
@@ -50,7 +60,7 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Cpu width={150} height={150} top={150} left={850} absolute={true}>
+        <Cpu width={150} height={150} top={155} left={855} absolute={true}>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
@@ -74,7 +84,7 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Cpu width={150} height={150} top={700} left={585} absolute={true}>
+        <Cpu width={150} height={150} top={705} left={585} absolute={true}>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
@@ -90,7 +100,7 @@ function App() {
         <SemiConductor width={40} height={50} top={690} left={350} absolute={true} rotate={"90deg"} />
         {/* Diode group 1 */}
         <Circuit startX={410} startY={35} points={[[190, 0]]} width={8} />
-        <Circuit startX={590} startY={90} points={[[-180, 0], [-300, -75], [-530, -75]]} width={8} />
+        <Circuit startX={590} startY={90} points={[[-180, 0], [-300, -75], [-540, -75]]} width={8} />
         <Diode width={50} height={25} left={400} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={450} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} color={"orange"}></Diode>
@@ -115,7 +125,7 @@ function App() {
         <Diode width={50} height={20} left={750} top={600} color={"orange"}></Diode>
         <Diode width={50} height={20} left={750} top={625} color={"orange"}></Diode>
         {/* top circuits */}
-        <Circuit startX={387} startY={300} points={[[0, -15], [-40, -30], [-40, -30]]}></Circuit>
+        <Circuit startX={387} startY={300} points={[[0, -15], [-15, -20], [-30, -20]]}></Circuit>
         <Circuit startX={402} startY={300} points={[[0, -20], [-40, -35], [-40, -50]]}></Circuit>
         <Circuit startX={417} startY={300} points={[[0, -25], [-40, -40], [-40, -55]]}></Circuit>
         <Circuit startX={432} startY={300} points={[[0, -30], [-40, -45], [-40, -60]]}></Circuit>
@@ -149,7 +159,7 @@ function App() {
         <Circuit startX={597} startY={615} points={[[0, 15], [45, 50], [45, 50]]}></Circuit>
         <Circuit startX={612} startY={615} points={[[0, 15], [15, 25], [35, 25]]}></Circuit>
         {/* left circuits */}
-        <Circuit startX={345} startY={345} points={[[-15, 0], [-30, -40], [-30, -60]]}></Circuit>
+        <Circuit startX={345} startY={345} points={[[-15, 0], [-30, -40], [-30, -40]]}></Circuit>
         <Circuit startX={345} startY={360} points={[[-20, 0], [-35, -40], [-50, -40]]}></Circuit>
         <Circuit startX={345} startY={375} points={[[-25, 0], [-40, -40], [-55, -40]]}></Circuit>
         <Circuit startX={345} startY={390} points={[[-30, 0], [-45, -40], [-60, -40]]}></Circuit>
@@ -183,25 +193,16 @@ function App() {
         <Circuit startX={655} startY={555} points={[[15, 0], [50, 50], [70, 50]]}></Circuit>
         <Circuit startX={655} startY={570} points={[[10, 0], [30, 25], [30, 35]]}></Circuit>
         {/* Dialog boxes */}
-        <Dialog open={open} handler={handleOpen}>
-          <DialogHeader>Its a simple dialog.</DialogHeader>
+        <Dialog open={open} handler={handleOpen} size={"lg"}>
+          <DialogHeader>Hello I'm Noel Wilson</DialogHeader>
           <DialogBody>
-            The key to more success is to have a lot of pillows. Put it this way,
-            it took me twenty five years to get these plants, twenty five years of
-            blood sweat and tears, and I&apos;m never giving up, I&apos;m just
-            getting started. I&apos;m up to something. Fan luv.
+            <ReactMarkdown className="prose" style={{width: '100% !important'}}>
+              {OverviewMarkdown}
+            </ReactMarkdown>
           </DialogBody>
           <DialogFooter>
-            <Button
-              variant="text"
-              color="red"
-              onClick={handleOpen}
-              className="mr-1"
-            >
-              <span>Cancel</span>
-            </Button>
             <Button variant="gradient" color="green" onClick={handleOpen}>
-              <span>Confirm</span>
+              <span>Okie Dokie</span>
             </Button>
           </DialogFooter>
         </Dialog>
