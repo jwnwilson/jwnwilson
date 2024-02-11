@@ -15,10 +15,28 @@ function App() {
   const [openTech, setOpenTech] = React.useState(false);
   const [openBlog, setOpenBlog] = React.useState(false);
   const [openHobbies, setOpenHobbies] = React.useState(false);
-  const handleOpenMain = () => setOpenMain(!openMain);
-  const handleOpenTech = () => setOpenTech(!openTech);
-  const handleOpenBlog = () => setOpenBlog(!openBlog);
-  const handleOpenHobbies = () => setOpenHobbies(!openHobbies);
+  const closeAll = () => {
+    setOpenMain(false);
+    setOpenTech(false);
+    setOpenBlog(false);
+    setOpenHobbies(false);
+  }
+  const handleOpenMain = () => {
+    closeAll();
+    setOpenMain(!openMain);
+  }
+  const handleOpenTech = () => {
+    closeAll();
+    setOpenTech(!openTech);
+  }
+  const handleOpenBlog = () => {
+    closeAll();
+    setOpenBlog(!openBlog);
+  }
+  const handleOpenHobbies = () => {
+    closeAll();
+    setOpenHobbies(!openHobbies);
+  }
 
   return (
     <div className="flex h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
@@ -184,7 +202,13 @@ function App() {
         <Circuit startX={655} startY={555} points={[[15, 0], [50, 50], [70, 50]]}></Circuit>
         <Circuit startX={655} startY={570} points={[[10, 0], [30, 25], [30, 35]]}></Circuit>
         {/* Dialog boxes */}
-        <MainDialog open={openMain} handleOpen={handleOpenMain}></MainDialog>
+        <MainDialog
+          open={openMain}
+          handleOpen={handleOpenMain}
+          handleOpenTech={handleOpenTech}
+          handleOpenBlog={handleOpenBlog}
+          handleOpenHobbies={handleOpenHobbies}
+        ></MainDialog>
         <TechDialog open={openTech} handleOpen={handleOpenTech}></TechDialog>
       </div>
     </div>

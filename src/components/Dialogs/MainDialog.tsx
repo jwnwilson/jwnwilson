@@ -13,8 +13,11 @@ const MainDialog = (props) => {
         <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8">
             <DialogHeader>Hello! I'm Noel Wilson</DialogHeader>
             <DialogBody>
-                <div class="columns-2xs">
-                    <ReactMarkdown className="prose" style={{ width: '100% !important' }}>
+                <div class="grid-container grid md:grid-cols-[30%_70%]">
+                    <div className="flex justify-center">
+                        <img style={{ maxHeight: 175 }} className="block mx-auto sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
+                    </div>
+                    <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>
                         {
                             `I'm an experienced Software Engineer comfortable across the tech stack. 
 I Have worked in London for over 15 years in various industries.
@@ -22,16 +25,20 @@ I specialise in building and leading efficient teams, bringing people together t
 `
                         }
                     </ReactMarkdown>
-                    <div className="flex justify-center">
-                        <img style={{ maxHeight: 175 }} className="block mx-auto rounded-full sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
-                    </div>
+                    
                 </div>
                 <br></br>
                 {/* Replace with links to other dialog boxes */}
                 <ReactMarkdown className="prose" style={{ width: '100% !important' }}>{
-                    `## Topics`}
+                    `## About Me`}
                 </ReactMarkdown>
-    
+                <br></br>
+                <div class="grid-container grid gap-4 md:grid-cols-4">
+                    <Button onClick={props.handleOpenTech}>Technology</Button>
+                    <Button>Blog</Button>
+                    <Button>Hobbies</Button>
+                    <Button>Pets</Button>
+                </div>
             </DialogBody>
             <DialogFooter>
                 <Button variant="gradient" color="green" onClick={props.handleOpen}>
