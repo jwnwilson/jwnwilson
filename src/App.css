@@ -18,3 +18,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.path {
+  animation: draw 30s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes draw {
+  0% {
+  }
+  50% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}

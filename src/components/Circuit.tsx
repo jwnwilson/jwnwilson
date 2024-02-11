@@ -14,6 +14,29 @@ const Circuit = (props) => {
                 <circle cx={lastPoints[0]} cy={lastPoints[1]} r={8} fill="#99823D" />
                 <circle cx={lastPoints[0]} cy={lastPoints[1]} r={5} fill="black" />
             </svg>
+            <svg style={{ position: "relative", height: "100%", width: "100%", overflow: "visible", top: -150 }}>
+                <defs>
+                <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%"   stop-color="#148BB1"/>
+                    <stop offset="100%" stop-color="#DBE2E8"/>
+                </linearGradient>
+                </defs>
+                    <g 
+                    className="path" 
+                    stroke="url(#linear)" 
+                    stroke-width="8" 
+                    fill="none" 
+                    fill-rule="evenodd" 
+                    stroke-linecap="butt" 
+                    stroke-linejoin="round" 
+                    stroke-opacity="1"
+                    stroke-dasharray="8,960,24,960,16,400"
+                    stroke-dashoffset="6400">
+                    <g>
+                        <polyline points={circuitPoints}></polyline>
+                    </g>
+                </g>
+            </svg>
         </div>
     )
 }
