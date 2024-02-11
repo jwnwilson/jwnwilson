@@ -20,9 +20,9 @@ const TechDialog = (props) => {
                         `
 * Python & Typescript
 * Dev Ops / Automation / Continous Delivery
-* Event Driven architecture
+* APIs & Event Driven architecture
 * AWS & GCP & Azure
-* Serverless & Containerisation
+* Serverless & Managed Container services
 * Team building and mentoring
 `
                     }
