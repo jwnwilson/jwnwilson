@@ -117,6 +117,7 @@ function App() {
         <Diode width={50} height={25} left={550} top={50} rotate={"90deg"} color={"orange"}></Diode>
         {/* Diode group 2 */}
         <Circuit startX={217} startY={195} points={[[0, 115], [-50, 140], [-165, 140]]} width={8}></Circuit>
+        <Circuit startX={272} startY={300} points={[[0, -125]]} width={8}></Circuit>
         <Diode width={50} height={20} left={220} top={200} color={"black"}></Diode>
         <Diode width={50} height={20} left={220} top={225} color={"black"}></Diode>
         <Diode width={50} height={20} left={220} top={250} color={"black"}></Diode>
@@ -136,9 +137,9 @@ function App() {
         <Diode width={50} height={20} left={750} top={625} color={"orange"}></Diode>
         {/* top circuits */}
         <Circuit startX={387} startY={300} points={[[0, -15], [-15, -20], [-30, -20]]}></Circuit>
-        <Circuit startX={402} startY={300} points={[[0, -20], [-40, -35], [-40, -50]]}></Circuit>
+        <Circuit startX={402} startY={300} points={[[0, -20], [-40, -35], [-40, -45]]}></Circuit>
         <Circuit startX={417} startY={300} points={[[0, -25], [-40, -40], [-40, -55]]}></Circuit>
-        <Circuit startX={432} startY={300} points={[[0, -30], [-40, -45], [-40, -60]]}></Circuit>
+        <Circuit startX={432} startY={300} points={[[0, -30], [-40, -45], [-40, -65]]}></Circuit>
         <Circuit startX={447} startY={300} points={[[0, -35], [-40, -50], [-40, -80], [-205, -175]]}></Circuit>
         <Circuit startX={462} startY={300} points={[[0, -40], [-40, -55], [-40, -85], [-220, -190]]}></Circuit>
         <Circuit startX={477} startY={300} points={[[0, -45], [-40, -60], [-40, -90], [-235, -205]]}></Circuit>
@@ -153,9 +154,9 @@ function App() {
         <Circuit startX={612} startY={300} points={[[0, -15], [15, -25], [35, -25]]}></Circuit>
         {/* bottom circuits */}
         <Circuit startX={387} startY={615} points={[[0, 15], [-30, 30], [-30, 30]]}></Circuit>
-        <Circuit startX={402} startY={615} points={[[0, 20], [-30, 35], [-30, 50]]}></Circuit>
+        <Circuit startX={402} startY={615} points={[[0, 20], [-30, 35], [-30, 45]]}></Circuit>
         <Circuit startX={417} startY={615} points={[[0, 25], [-30, 40], [-30, 55]]}></Circuit>
-        <Circuit startX={432} startY={615} points={[[0, 30], [-30, 45], [-30, 60]]}></Circuit>
+        <Circuit startX={432} startY={615} points={[[0, 30], [-30, 45], [-30, 65]]}></Circuit>
         <Circuit startX={447} startY={615} points={[[0, 35], [-30, 50], [-30, 90], [100, 200]]}></Circuit>
         <Circuit startX={462} startY={615} points={[[0, 40], [-30, 55], [-30, 85], [85, 180]]}></Circuit>
         <Circuit startX={477} startY={615} points={[[0, 45], [-30, 60], [-30, 80], [70, 160]]}></Circuit>
@@ -171,8 +172,8 @@ function App() {
         {/* left circuits */}
         <Circuit startX={345} startY={345} points={[[-15, 0], [-30, -40], [-30, -40]]}></Circuit>
         <Circuit startX={345} startY={360} points={[[-20, 0], [-35, -40], [-50, -40]]}></Circuit>
-        <Circuit startX={345} startY={375} points={[[-25, 0], [-40, -40], [-55, -40]]}></Circuit>
-        <Circuit startX={345} startY={390} points={[[-30, 0], [-45, -40], [-60, -40]]}></Circuit>
+        <Circuit startX={345} startY={375} points={[[-25, 0], [-40, -40], [-60, -40]]}></Circuit>
+        <Circuit startX={345} startY={390} points={[[-30, 0], [-45, -40], [-70, -40]]}></Circuit>
         <Circuit startX={345} startY={405} points={[[-45, 0], [-70, 40], [-100, 40], [-155, 160]]}></Circuit>
         <Circuit startX={345} startY={420} points={[[-40, 0], [-65, 40], [-95, 40], [-155, 170]]}></Circuit>
         <Circuit startX={345} startY={435} points={[[-35, 0], [-60, 40], [-90, 40], [-155, 180]]}></Circuit>
@@ -187,8 +188,8 @@ function App() {
         <Circuit startX={345} startY={570} points={[[-10, 0], [-25, 25], [-25, 45]]}></Circuit>
         {/* right circuits */}
         <Circuit startX={655} startY={345} points={[[15, 0], [30, -25], [30, -50]]}></Circuit>
-        <Circuit startX={655} startY={360} points={[[20, 0], [45, -40], [70, -40]]}></Circuit>
-        <Circuit startX={655} startY={375} points={[[25, 0], [50, -40], [75, -40]]}></Circuit>
+        <Circuit startX={655} startY={360} points={[[20, 0], [45, -40], [60, -40]]}></Circuit>
+        <Circuit startX={655} startY={375} points={[[25, 0], [50, -40], [70, -40]]}></Circuit>
         <Circuit startX={655} startY={390} points={[[30, 0], [55, -40], [80, -40]]}></Circuit>
         <Circuit startX={655} startY={405} points={[[35, 0], [60, -40], [95, -40], [160, -170]]}></Circuit>
         <Circuit startX={655} startY={420} points={[[40, 0], [65, -40], [100, -40], [160, -160]]}></Circuit>
