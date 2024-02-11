@@ -1,12 +1,5 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
+
 
 import './App.css'
 import profile from './assets/profile.jpg'
@@ -14,36 +7,23 @@ import Cpu from './components/Cpu';
 import SemiConductor from './components/Semiconductor';
 import Circuit from './components/Circuit';
 import Diode from './components/Diode';
-
-const OverviewMarkdown = `
-I'm a experienced Engineer able to jump into any part of the tech stack.
-
-* Technical skills
-
-I also manage teams.
-
-* Management skills
-
-I write about things I learn
-
-* Blog
-
-I have hobbies too!
-
-* Hobbies
-
-`
-
+import MainDialog from "./components/Dialogs/MainDialog";
+import TechDialog from "./components/Dialogs/TechDialog";
 
 function App() {
-  const [open, setOpen] = React.useState(false);
- 
-  const handleOpen = () => setOpen(!open);
+  const [openMain, setOpenMain] = React.useState(false);
+  const [openTech, setOpenTech] = React.useState(false);
+  const [openBlog, setOpenBlog] = React.useState(false);
+  const [openHobbies, setOpenHobbies] = React.useState(false);
+  const handleOpenMain = () => setOpenMain(!openMain);
+  const handleOpenTech = () => setOpenTech(!openTech);
+  const handleOpenBlog = () => setOpenBlog(!openBlog);
+  const handleOpenHobbies = () => setOpenHobbies(!openHobbies);
 
   return (
-    <div className="flex h-screen justify-center items-center overflow-hidden bg-emerald-900">
+    <div className="flex h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
       <div className="flex min-w-[1000px] min-h-[900px]">
-        <Cpu width={250} height={250} top={332} left={375} absolute={true} onClick={handleOpen}>
+        <Cpu width={250} height={250} top={332} left={375} absolute={true} onClick={handleOpenMain}>
           <div className="h-24 space-y-0.5">
             <img className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
           </div>
@@ -58,14 +38,14 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Cpu width={150} height={150} top={50} left={50} absolute={true}>
+        <Cpu width={150} height={150} top={50} left={50} absolute={true} onClick={handleOpenTech}>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
-                Topic A
+                Technology
               </p>
               <p className="text-slate-500 font-medium">
-                Subtitle
+                My Tools
               </p>
             </div>
           </div>
@@ -74,10 +54,10 @@ function App() {
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
-                Topic B
+                Blog
               </p>
               <p className="text-slate-500 font-medium">
-                Subtitle
+                My Thoughts
               </p>
             </div>
           </div>
@@ -86,10 +66,10 @@ function App() {
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
-                Topic C
+                Hobbies
               </p>
               <p className="text-slate-500 font-medium">
-                Subtitle
+                My hobbies
               </p>
             </div>
           </div>
@@ -98,10 +78,10 @@ function App() {
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
-                Topic D
+                Pets
               </p>
               <p className="text-slate-500 font-medium">
-                Subtitle
+                My Bunnies!
               </p>
             </div>
           </div>
@@ -204,19 +184,7 @@ function App() {
         <Circuit startX={655} startY={555} points={[[15, 0], [50, 50], [70, 50]]}></Circuit>
         <Circuit startX={655} startY={570} points={[[10, 0], [30, 25], [30, 35]]}></Circuit>
         {/* Dialog boxes */}
-        <Dialog open={open} handler={handleOpen} size={"lg"}>
-          <DialogHeader>Hello! I'm Noel Wilson</DialogHeader>
-          <DialogBody>
-            <ReactMarkdown className="prose" style={{width: '100% !important'}}>
-              {OverviewMarkdown}
-            </ReactMarkdown>
-          </DialogBody>
-          <DialogFooter>
-            <Button variant="gradient" color="green" onClick={handleOpen}>
-              <span>Okie Dokie</span>
-            </Button>
-          </DialogFooter>
-        </Dialog>
+        <MainDialog open={openMain} handleOpen={handleOpenMain}></MainDialog>
       </div>
     </div>
   )
