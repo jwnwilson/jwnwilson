@@ -29,26 +29,9 @@ I specialise in building and leading efficient teams, bringing people together t
                 <br></br>
                 {/* Replace with links to other dialog boxes */}
                 <ReactMarkdown className="prose" style={{ width: '100% !important' }}>{
-                    `## Specialities`}
+                    `## Topics`}
                 </ReactMarkdown>
-                <div class="columns-2xs">
-                    <ReactMarkdown className="prose" style={{ width: '100% !important' }}>{
-                        `
-* Python & Typescript
-* Dev Ops / Automation / Continous Delivery
-* Event Driven architecture
-* AWS & GCP & Azure
-* Serverless & Containerisation
-* Team building and mentoring
-`
-                    }
-                    </ReactMarkdown>
-                    <ReactMarkdown className="prose" style={{ width: '100% !important' }}>{
-                        `
-`
-                    }
-                    </ReactMarkdown>
-                </div>
+    
             </DialogBody>
             <DialogFooter>
                 <Button variant="gradient" color="green" onClick={props.handleOpen}>

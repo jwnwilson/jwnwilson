@@ -185,6 +185,7 @@ function App() {
         <Circuit startX={655} startY={570} points={[[10, 0], [30, 25], [30, 35]]}></Circuit>
         {/* Dialog boxes */}
         <MainDialog open={openMain} handleOpen={handleOpenMain}></MainDialog>
+        <TechDialog open={openTech} handleOpen={handleOpenTech}></TechDialog>
       </div>
     </div>
   )

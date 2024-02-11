@@ -1,0 +1,6 @@
+- Add link to topics, blog etc in main dialog
+- Add basic content to topics
+- Add electric animation to circuits
+- Add social media links
+- Create a blog to link to
+- Deploy website
