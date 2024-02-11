@@ -96,7 +96,7 @@ function App() {
         <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={550} top={50} rotate={"90deg"} color={"orange"}></Diode>
         {/* Diode group 2 */}
-        <Circuit startX={217} startY={195} points={[[0, 115], [-50, 140], [-165, 140]]} width={8}></Circuit>
+        <Circuit startX={217} startY={195} points={[[0, 115], [-50, 145], [-165, 145]]} width={8}></Circuit>
         <Circuit startX={272} startY={300} points={[[0, -125]]} width={8}></Circuit>
         <Diode width={50} height={20} left={220} top={200} color={"black"}></Diode>
         <Diode width={50} height={20} left={220} top={225} color={"black"}></Diode>
@@ -109,7 +109,7 @@ function App() {
         <Diode width={50} height={20} left={100} top={300} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={20} left={125} top={300} rotate={"90deg"} color={"orange"}></Diode>
         {/* Diode group3 */}
-        <Circuit startX={800} startY={550} points={[[0, 100], [-30, 125], [-30, 300]]} width={8}></Circuit>
+        <Circuit startX={805} startY={550} points={[[0, 100], [-30, 125], [-30, 300]]} width={8}></Circuit>
         <Circuit startX={750} startY={550} points={[[0, 100], [-20, 115], [-75, 115]]} width={8}></Circuit>
         <Diode width={50} height={20} left={750} top={550} color={"orange"}></Diode>
         <Diode width={50} height={20} left={750} top={575} color={"orange"}></Diode>
