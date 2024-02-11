@@ -16,12 +16,22 @@ import Circuit from './components/Circuit';
 import Diode from './components/Diode';
 
 const OverviewMarkdown = `
-I'm a full stack Principle Engineer able to jump into any part of the tech stack. My technologies I specialise in are:
+I'm a experienced Engineer able to jump into any part of the tech stack.
 
-* Python / Typescript
-* Backend development
-* Infrastructure / Terraform
-* Dev Ops / Automation
+* Technical skills
+
+I also manage teams.
+
+* Management skills
+
+I write about things I learn
+
+* Blog
+
+I have hobbies too!
+
+* Hobbies
+
 `
 
 
@@ -142,22 +152,22 @@ function App() {
         <Circuit startX={597} startY={300} points={[[0, -15], [45, -55], [45, -60]]}></Circuit>
         <Circuit startX={612} startY={300} points={[[0, -15], [15, -25], [35, -25]]}></Circuit>
         {/* bottom circuits */}
-        <Circuit startX={387} startY={615} points={[[0, 15], [-40, 30], [-40, 30]]}></Circuit>
-        <Circuit startX={402} startY={615} points={[[0, 20], [-40, 35], [-40, 50]]}></Circuit>
-        <Circuit startX={417} startY={615} points={[[0, 25], [-40, 40], [-40, 55]]}></Circuit>
-        <Circuit startX={432} startY={615} points={[[0, 30], [-40, 45], [-40, 60]]}></Circuit>
-        <Circuit startX={447} startY={615} points={[[0, 35], [-40, 50], [-40, 90], [100, 205]]}></Circuit>
-        <Circuit startX={462} startY={615} points={[[0, 40], [-40, 55], [-40, 85], [85, 190]]}></Circuit>
-        <Circuit startX={477} startY={615} points={[[0, 45], [-40, 60], [-40, 80], [70, 175]]}></Circuit>
+        <Circuit startX={387} startY={615} points={[[0, 15], [-30, 30], [-30, 30]]}></Circuit>
+        <Circuit startX={402} startY={615} points={[[0, 20], [-30, 35], [-30, 50]]}></Circuit>
+        <Circuit startX={417} startY={615} points={[[0, 25], [-30, 40], [-30, 55]]}></Circuit>
+        <Circuit startX={432} startY={615} points={[[0, 30], [-30, 45], [-30, 60]]}></Circuit>
+        <Circuit startX={447} startY={615} points={[[0, 35], [-30, 50], [-30, 90], [100, 200]]}></Circuit>
+        <Circuit startX={462} startY={615} points={[[0, 40], [-30, 55], [-30, 85], [85, 180]]}></Circuit>
+        <Circuit startX={477} startY={615} points={[[0, 45], [-30, 60], [-30, 80], [70, 160]]}></Circuit>
         <Circuit startX={492} startY={615} points={[[0, 30], [0, 45], [0, 60]]}></Circuit>
         <Circuit startX={507} startY={615} points={[[0, 20], [0, 35]]}></Circuit>
         <Circuit startX={522} startY={615} points={[[0, 15], [15, 30], [15, 45]]}></Circuit>
         <Circuit startX={537} startY={615} points={[[0, 15], [15, 30], [15, 55]]}></Circuit>
         <Circuit startX={552} startY={615} points={[[0, 15], [15, 30], [15, 45]]}></Circuit>
-        <Circuit startX={567} startY={615} points={[[0, 15], [45, 50], [45, 50]]}></Circuit>
-        <Circuit startX={582} startY={615} points={[[0, 15], [45, 50], [45, 50]]}></Circuit>
-        <Circuit startX={597} startY={615} points={[[0, 15], [45, 50], [45, 50]]}></Circuit>
-        <Circuit startX={612} startY={615} points={[[0, 15], [15, 25], [35, 25]]}></Circuit>
+        <Circuit startX={567} startY={615} points={[[0, 15], [35, 50], [35, 50]]}></Circuit>
+        <Circuit startX={582} startY={615} points={[[0, 15], [35, 50], [35, 50]]}></Circuit>
+        <Circuit startX={597} startY={615} points={[[0, 15], [35, 50], [35, 50]]}></Circuit>
+        <Circuit startX={612} startY={615} points={[[0, 15], [15, 30], [35, 30]]}></Circuit>
         {/* left circuits */}
         <Circuit startX={345} startY={345} points={[[-15, 0], [-30, -40], [-30, -40]]}></Circuit>
         <Circuit startX={345} startY={360} points={[[-20, 0], [-35, -40], [-50, -40]]}></Circuit>
@@ -194,7 +204,7 @@ function App() {
         <Circuit startX={655} startY={570} points={[[10, 0], [30, 25], [30, 35]]}></Circuit>
         {/* Dialog boxes */}
         <Dialog open={open} handler={handleOpen} size={"lg"}>
-          <DialogHeader>Hello I'm Noel Wilson</DialogHeader>
+          <DialogHeader>Hello! I'm Noel Wilson</DialogHeader>
           <DialogBody>
             <ReactMarkdown className="prose" style={{width: '100% !important'}}>
               {OverviewMarkdown}
