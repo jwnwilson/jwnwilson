@@ -60,7 +60,7 @@ const MainDialog = (props) => {
                             }
                         </ReactMarkdown>
                         <br></br>
-                        <div className="grid-container grid gap-4 md:grid-cols-8 px-8">
+                        <div className="grid-container grid gap-4 grid-cols-3 md:grid-cols-8 px-8">
                             <ClickableIcon url={"https://github.com/jwnwilson"}>
                                 <GithubIcon></GithubIcon>
                             </ClickableIcon>
