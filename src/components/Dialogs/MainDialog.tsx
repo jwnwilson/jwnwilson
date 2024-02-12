@@ -94,7 +94,7 @@ const MainDialog = (props) => {
                 <div className="grid-container grid gap-4 md:grid-cols-4">
                     <Button onClick={props.handleOpenTech}>Technology</Button>
                     <Button>Blog</Button>
-                    <Button>Hobbies</Button>
+                    <Button onClick={props.handleOpenHobbies}>Hobbies</Button>
                     <Button>Pets</Button>
                 </div>
             </DialogBody>

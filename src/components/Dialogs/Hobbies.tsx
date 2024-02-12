@@ -8,10 +8,10 @@ import {
 } from "@material-tailwind/react";
 import pythonLogo from '../../assets/PythonLogo.png'
 
-const TechDialog = (props) => {
+const HobbyDialog = (props) => {
     return (
         <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
-            <DialogHeader>Technology</DialogHeader>
+            <DialogHeader>Hobbies</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="flex justify-center">
@@ -19,32 +19,10 @@ const TechDialog = (props) => {
                     </div>
                     <div>
                         <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>{
-                            `I'm a big believer in T-Shaped developers so am comfortable working in any discipline, my speciality is Python Backend Engineering, Dev Ops, Infra and Automation.`
+                            `Living a rockstar lifestyle I love video and games and board games. I'm also an old gymnast and enjoy seeing what I can still do with my buddies at our local gymnastics club.`
                         }
                         </ReactMarkdown>
-                        <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>{
-                            `I focus on what the team(s) need the most, training engineers to maintain quality as I work across disciplines.`}
-                        </ReactMarkdown>
-                        <br></br>
-                        <a className="px-4" href="https://github.com/jwnwilson">If you're interested, here's my github</a>
                     </div>
-                </div>
-                <br></br>
-                <ReactMarkdown className="prose">{
-                    `## Specialities`}
-                </ReactMarkdown>
-                <div className="columns-2xs">
-                    <ReactMarkdown className="prose">{
-                        `
-* Python & Typescript
-* Dev Ops / Automation / Continous Delivery
-* APIs & Event Driven architecture
-* AWS & GCP & Azure
-* Serverless & Managed Container services
-* Team building and mentoring
-`
-                    }
-                    </ReactMarkdown>
                 </div>
                 <br></br>
                 <ReactMarkdown className="prose">{
@@ -63,4 +41,4 @@ const TechDialog = (props) => {
         </Dialog>)
 }
 
-export default TechDialog;
+export default HobbyDialog;

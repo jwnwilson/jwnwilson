@@ -12,6 +12,26 @@ body {
   overflow: hidden;
 }
 
+/* unvisited link */
+a:link {
+  color: #1a0dab;
+}
+
+/* visited link */
+a:visited {
+  color: #681da8;
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: lightblue;
+}
+
 .root {
   height: 100%;
 }

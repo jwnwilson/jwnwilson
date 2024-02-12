@@ -9,6 +9,7 @@ import Circuit from './components/Circuit';
 import Diode from './components/Diode';
 import MainDialog from "./components/Dialogs/MainDialog";
 import TechDialog from "./components/Dialogs/TechDialog";
+import HobbyDialog from "./components/Dialogs/Hobbies";
 
 function App() {
   const [openMain, setOpenMain] = React.useState(false);
@@ -80,7 +81,7 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Cpu width={150} height={150} top={550} left={0} absolute={true}>
+        <Cpu width={150} height={150} top={550} left={0} absolute={true} onClick={handleOpenHobbies}>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
@@ -210,6 +211,7 @@ function App() {
           handleOpenHobbies={handleOpenHobbies}
         ></MainDialog>
         <TechDialog open={openTech} handleOpen={handleOpenTech}></TechDialog>
+        <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies}></HobbyDialog>
       </div>
     </div>
   )
