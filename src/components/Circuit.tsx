@@ -17,21 +17,21 @@ const Circuit = (props) => {
             <svg style={{ position: "relative", height: "100%", width: "100%", overflow: "visible", top: -150 }}>
                 <defs>
                 <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%"   stop-color="#148BB1"/>
-                    <stop offset="100%" stop-color="#DBE2E8"/>
+                    <stop offset="0%"   stopColor="#148BB1"/>
+                    <stop offset="100%" stopColor="#DBE2E8"/>
                 </linearGradient>
                 </defs>
                     <g 
                     className="path" 
                     stroke="url(#linear)" 
-                    stroke-width="8" 
+                    strokeWidth="8" 
                     fill="none" 
-                    fill-rule="evenodd" 
-                    stroke-linecap="butt" 
-                    stroke-linejoin="round" 
-                    stroke-opacity="1"
-                    stroke-dasharray="8,960,24,960,16,400"
-                    stroke-dashoffset="6400">
+                    fillRule="evenodd" 
+                    strokeLinecap="butt" 
+                    strokeLinejoin="round" 
+                    strokeOpacity="1"
+                    strokeDasharray="8,960,24,960,16,400"
+                    strokeDashoffset="6400">
                     <g>
                         <polyline points={circuitPoints}></polyline>
                     </g>
