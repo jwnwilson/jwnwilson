@@ -41,6 +41,14 @@ const InstaIcon = () => {
     )
 }
 
+const EmailIcon = () => {
+    return (
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#080341"/>
+        </svg>
+    )
+}
+
 const MainDialog = (props) => {
     return (
         <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
@@ -54,7 +62,7 @@ const MainDialog = (props) => {
                         <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>
                             {
                                 `I'm an experienced Software Engineer comfortable across the tech stack. 
-    I Have worked in London for over 15 years in various industries.
+    I Have worked in London for over 10 years in various industries.
     I specialise in building and leading efficient teams, bringing people together to build great products.
     `
                             }
@@ -69,6 +77,9 @@ const MainDialog = (props) => {
                             </ClickableIcon>
                             <ClickableIcon url={"https://www.instagram.com/noelwilsonlon/?hl=en"}>
                                 <InstaIcon></InstaIcon>
+                            </ClickableIcon>
+                            <ClickableIcon url={"mailto:jwnwilson@hotmail.co.uk"}>
+                                <EmailIcon></EmailIcon>
                             </ClickableIcon>
                         </div>
                     </div>
