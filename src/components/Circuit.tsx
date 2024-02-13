@@ -30,7 +30,7 @@ const Circuit = (props) => {
                     strokeLinecap="butt" 
                     strokeLinejoin="round" 
                     strokeOpacity="1"
-                    strokeDasharray="8,960,24,960,16,400"
+                    strokeDasharray="0,960,24,960,16,400"
                     strokeDashoffset="6400">
                     <g>
                         <polyline points={circuitPoints}></polyline>
