@@ -95,7 +95,7 @@ const MainDialog = (props) => {
                     <Button onClick={props.handleOpenTech}>Technology</Button>
                     <Button>Blog</Button>
                     <Button onClick={props.handleOpenHobbies}>Hobbies</Button>
-                    <Button>Pets</Button>
+                    <Button onClick={props.handleOpenPets}>Pets</Button>
                 </div>
             </DialogBody>
             <DialogFooter>

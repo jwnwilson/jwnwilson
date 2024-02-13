@@ -1,4 +1,5 @@
 - Add link to topics, blog etc in main dialog
+- Add back button / functionality and url to dialog boxes
 - Add basic content to topics
 - Add electric animation to circuits
 - Add social media links

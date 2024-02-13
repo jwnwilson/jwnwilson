@@ -10,17 +10,20 @@ import Diode from './components/Diode';
 import MainDialog from "./components/Dialogs/MainDialog";
 import TechDialog from "./components/Dialogs/TechDialog";
 import HobbyDialog from "./components/Dialogs/Hobbies";
+import PetDialog from "./components/Dialogs/Pets";
 
 function App() {
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
   const [openBlog, setOpenBlog] = React.useState(false);
   const [openHobbies, setOpenHobbies] = React.useState(false);
+  const [openPets, setOpenPets] = React.useState(false);
   const closeAll = () => {
     setOpenMain(false);
     setOpenTech(false);
     setOpenBlog(false);
     setOpenHobbies(false);
+    setOpenPets(false);
   }
   const handleOpenMain = () => {
     closeAll();
@@ -37,6 +40,10 @@ function App() {
   const handleOpenHobbies = () => {
     closeAll();
     setOpenHobbies(!openHobbies);
+  }
+  const handleOpenPets = () => {
+    closeAll();
+    setOpenPets(!openPets);
   }
 
   return (
@@ -93,7 +100,7 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Cpu width={150} height={150} top={705} left={585} absolute={true}>
+        <Cpu width={150} height={150} top={705} left={585} absolute={true} onClick={handleOpenPets}>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">
@@ -209,9 +216,11 @@ function App() {
           handleOpenTech={handleOpenTech}
           handleOpenBlog={handleOpenBlog}
           handleOpenHobbies={handleOpenHobbies}
+          handleOpenPets={handleOpenPets}
         ></MainDialog>
         <TechDialog open={openTech} handleOpen={handleOpenTech}></TechDialog>
         <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies}></HobbyDialog>
+        <PetDialog  open={openPets} handleOpen={handleOpenPets}></PetDialog>
       </div>
     </div>
   )
