@@ -59,11 +59,11 @@ const MainDialog = (props) => {
                         <img style={{ maxHeight: 175 }} className="block mx-auto sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
                     </div>
                     <div className="grid-rows-4 grid-flow-col">
-                        <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>
+                        <ReactMarkdown className="prose px-4 mt-2 md:mt-0" style={{ width: '100% !important' }}>
                             {
                                 `I'm an experienced Software Engineer comfortable across the tech stack. 
     I Have worked in London for over 10 years in various industries.
-    I specialise in building and leading efficient teams, bringing people together to build great products.
+    My passion is building and leading efficient teams, bringing people together to build great products.
     `
                             }
                         </ReactMarkdown>

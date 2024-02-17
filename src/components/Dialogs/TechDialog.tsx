@@ -6,7 +6,8 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
-import pythonLogo from '../../assets/PythonLogo.png'
+import pythonLogo from '../../assets/technology/PythonLogo.png'
+import tsLogo from '../../assets/technology/ts_logo.png'
 
 const TechDialog = (props) => {
     return (
@@ -14,32 +15,36 @@ const TechDialog = (props) => {
             <DialogHeader>Technology</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
-                    <div className="flex justify-center">
-                        <img style={{ maxHeight: 175 }} className="block mx-auto sm:mx-0 sm:shrink-0" src={pythonLogo} alt="Python Logo" />
+                    <div className="grid grid-cols-2  md:grid-cols-1 flex justify-center items-center">
+                        <img className="w-10 md:w-32 block mx-auto" src={pythonLogo} alt="Python Logo" />
+                        <img className="w-16 md:w-32 block mx-auto" src={tsLogo} alt="Typescript Logo" />
                     </div>
                     <div>
-                        <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>{
-                            `I'm a big believer in T-Shaped developers so am comfortable working in any discipline, my speciality is Python Backend Engineering, Dev Ops, Infra and Automation.`
+                        <ReactMarkdown className="prose px-4 mt-2 md:mt-0 " style={{ width: '100% !important' }}>{
+                            `I'm fullstack, my specialities are
+- Python Backends
+- Typescript Frontends
+- Infrastructure as Code
+- Dev Ops & Continuous Delivery.`
                         }
                         </ReactMarkdown>
                         <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>{
-                            `I focus on what the team(s) need the most, training engineers to maintain quality as I work across disciplines.`}
+                            `I focus on what the teams need the most, training engineers to maintain quality and velocity.`}
                         </ReactMarkdown>
                         <br></br>
-                        <a className="px-4" href="https://github.com/jwnwilson">If you're interested, here's my github</a>
+                        <a className="mx-4" href="https://github.com/jwnwilson">Here's my github!</a>
                     </div>
                 </div>
                 <br></br>
                 <ReactMarkdown className="prose">{
-                    `## Specialities`}
+                    `## Other skills`}
                 </ReactMarkdown>
                 <div className="columns-2xs">
                     <ReactMarkdown className="prose">{
                         `
-* Python & Typescript
-* Dev Ops / Automation / Continous Delivery
-* APIs & Event Driven architecture
 * AWS & GCP & Azure
+* Cloud Architecture
+* APIs & Event Driven architecture
 * Serverless & Managed Container services
 * Team building and mentoring
 `

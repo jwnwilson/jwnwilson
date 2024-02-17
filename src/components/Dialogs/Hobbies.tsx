@@ -6,8 +6,8 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
-import gymPhoto from '../../assets/gym_thumbs_up.jpg'
-import boardGames from '../../assets/board_games.jpg'
+import gymPhoto from '../../assets/hobbies/gym_thumbs_up.jpg'
+import boardGames from '../../assets/hobbies/board_games.jpg'
 
 const HobbyDialog = (props) => {
     return (
@@ -21,7 +21,7 @@ const HobbyDialog = (props) => {
                     </div>
                     <div className="prose px-8">
                         <ReactMarkdown style={{ width: '100% !important' }}>{
-                            `Living a rockstar lifestyle I love video and games and board games. I'm also an old gymnast and enjoy seeing what I can still do with my buddies at our local gymnastics club.`
+                            `Living a rockstar lifestyle I love video and board games. I'm an old gymnast and see what I can still do with my buddies at our local gymnastics club.`
                         }
                         </ReactMarkdown>
                         <br></br>
