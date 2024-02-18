@@ -101,6 +101,9 @@ function App() {
       case "pets":
         handleOpenPets();
         break;
+      case "":
+        closeAll();
+        break;
     }
   }, [refreshUrl]);
 
@@ -277,8 +280,8 @@ function App() {
           handleOpenPets={handleOpenPets}
         ></MainDialog>
         <TechDialog open={openTech} handleOpen={handleOpenTech} goBack={goBack}></TechDialog>
-        <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies}></HobbyDialog>
-        <PetDialog  open={openPets} handleOpen={handleOpenPets}></PetDialog>
+        <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies} goBack={goBack}></HobbyDialog>
+        <PetDialog  open={openPets} handleOpen={handleOpenPets} goBack={goBack}></PetDialog>
       </div>
     </div>
   )
