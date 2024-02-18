@@ -1,7 +1,7 @@
-- Add link to topics, blog etc in main dialog
 - Add back button / functionality and url to dialog boxes
-- Add basic content to topics
-- Add electric animation to circuits
-- Add social media links
+- Setup SSR for SEO
+    - https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-react
 - Create a blog to link to
 - Deploy website
+- Fill our circuit 
+

@@ -61,7 +61,7 @@ const MainDialog = (props) => {
                     <div className="grid-rows-4 grid-flow-col">
                         <ReactMarkdown className="prose px-4 mt-2 md:mt-0" style={{ width: '100% !important' }}>
                             {
-                                `I'm an experienced Software Engineer comfortable across the tech stack. 
+                                `I'm an experienced Software Engineer and Engineering Manager. 
     I Have worked in London for over 10 years in various industries.
     My passion is building and leading efficient teams, bringing people together to build great products.
     `
