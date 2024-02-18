@@ -34,8 +34,7 @@ function App() {
     setOpenTech(!openTech);
   }
   const handleOpenBlog = () => {
-    closeAll();
-    setOpenBlog(!openBlog);
+    window.location.href = 'https://blog.noel-wilson.co.uk/';
   }
   const handleOpenHobbies = () => {
     closeAll();
@@ -76,7 +75,7 @@ function App() {
             </div>
           </div>
         </Cpu>
-        <Cpu width={150} height={150} top={155} left={855} absolute={true}>
+        <Cpu width={150} height={150} top={155} left={855} absolute={true} onClick={handleOpenBlog}>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
               <p className="text-lg text-white font-semibold">

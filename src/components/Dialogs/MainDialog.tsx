@@ -10,7 +10,7 @@ import profile from '../../assets/profile.jpg'
 
 const ClickableIcon = (props) => {
     return (
-        <a href={props.url} className="border-2 h-10 flex justify-center items-center hover:bg-gray-400 rounded-full">
+        <a href={props.url} className="border-2 h-10 flex justify-center items-center hover:bg-gray-400 rounded-full" style={{minWidth:"50px"}}>
             {props.children}
         </a>
     )
@@ -59,7 +59,7 @@ const MainDialog = (props) => {
                         <img style={{ maxHeight: 175 }} className="block mx-auto sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
                     </div>
                     <div className="grid-rows-4 grid-flow-col">
-                        <ReactMarkdown className="prose px-4 mt-2 md:mt-0" style={{ width: '100% !important' }}>
+                        <ReactMarkdown className="prose px-0 md:px-4 mt-2 md:mt-0" style={{ width: '100% !important' }}>
                             {
                                 `I'm an experienced Software Engineer and Engineering Manager. 
     I Have worked in London for over 10 years in various industries.
@@ -68,7 +68,7 @@ const MainDialog = (props) => {
                             }
                         </ReactMarkdown>
                         <br></br>
-                        <div className="grid-container grid gap-4 grid-cols-3 md:grid-cols-8 px-8">
+                        <div className="grid-container grid gap-4 grid-cols-3 md:grid-cols-8 px-0 md:px-8">
                             <ClickableIcon url={"https://github.com/jwnwilson"}>
                                 <GithubIcon></GithubIcon>
                             </ClickableIcon>
@@ -93,7 +93,7 @@ const MainDialog = (props) => {
                 <br></br>
                 <div className="grid-container grid gap-4 md:grid-cols-4">
                     <Button onClick={props.handleOpenTech}>Technology</Button>
-                    <Button>Blog</Button>
+                    <Button onClick={props.handleOpenBlog}>Blog</Button>
                     <Button onClick={props.handleOpenHobbies}>Hobbies</Button>
                     <Button onClick={props.handleOpenPets}>Pets</Button>
                 </div>

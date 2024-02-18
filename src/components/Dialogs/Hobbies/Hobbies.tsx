@@ -25,7 +25,7 @@ const HobbyDialog = (props) => {
                             />
                         </div>
                     </div>
-                    <div className="prose px-0 md:px-8">
+                    <div className="prose px-0 md:px-8 mt-4 md:mt-0">
                         <ReactMarkdown style={{ width: '100% !important' }}>{
                             `Living a rockstar lifestyle I love video and board games. I'm an old gymnast and see what I can still do with my buddies at our local gymnastics club.`
                         }
