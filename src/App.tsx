@@ -78,6 +78,7 @@ function App() {
   }
   const goBack = (event) => {
     window.history.back();
+    // Hack to avoid refresh url running before url has updated
     setTimeout(() => {
       setrefreshUrl(!refreshUrl);
     }, 0);
