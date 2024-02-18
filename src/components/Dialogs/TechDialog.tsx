@@ -15,18 +15,24 @@ const BackIcon = () => {
     )
 }
 
-const TechDialog = (props) => {
+export interface Props {
+    open: boolean;
+    handleOpen: () => void;
+    goBack: (event: any) => void;
+}
+
+const TechDialog = (props: Props) => {
     return (
-        <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
-            <DialogHeader><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Technology</DialogHeader>
-            <DialogBody className="w-full xs:h-full sm:h-100">
+        <Dialog placeholder="Technology Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+            <DialogHeader placeholder="Technology Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Technology</DialogHeader>
+            <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Technology Dialog">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="grid grid-cols-2  md:grid-cols-1 flex justify-center items-center">
                         <img className="w-10 md:w-32 block mx-auto" src={pythonLogo} alt="Python Logo" />
                         <img className="w-16 md:w-32 block mx-auto" src={tsLogo} alt="Typescript Logo" />
                     </div>
                     <div>
-                        <ReactMarkdown className="prose px-4 mt-2 md:mt-0 " style={{ width: '100% !important' }}>{
+                        <ReactMarkdown className="prose px-4 mt-2 md:mt-0 ">{
                             `I'm fullstack, my specialities are
 - Python Backends
 - Typescript Frontends
@@ -34,7 +40,7 @@ const TechDialog = (props) => {
 - Dev Ops & Continuous Delivery.`
                         }
                         </ReactMarkdown>
-                        <ReactMarkdown className="prose px-4" style={{ width: '100% !important' }}>{
+                        <ReactMarkdown className="prose px-4">{
                             `I focus on what the teams need the most, training engineers to maintain quality and velocity.`}
                         </ReactMarkdown>
                         <br></br>
@@ -66,8 +72,15 @@ const TechDialog = (props) => {
                     <p style={{width: "150px", color: "black"}}>- Bad jokes</p>
                 </div>
             </DialogBody>
-            <DialogFooter>
-                <Button variant="gradient" color="green" onClick={props.handleOpen}>
+            <DialogFooter
+                placeholder="Footer"
+            >
+                <Button 
+                    variant="gradient"
+                    color="green"
+                    onClick={props.handleOpen}
+                    placeholder="Close"
+                >
                     <span>Okie Dokie</span>
                 </Button>
             </DialogFooter>

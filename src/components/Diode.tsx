@@ -1,7 +1,17 @@
-const Diode = (props) => {
+export interface Props {
+    height: number;
+    width: number;
+    rotate?: string;
+    left: number;
+    top: number;
+    color? : string;
+    classNames?: string;
+  }
+
+const Diode = (props: Props) => {
     const { left, top, height, width, color } = props;
     const middleLength = width * 0.4;
-    const rotate = props.rotate || 0;
+    const rotate = props.rotate || "";
     const diodeClassNames = "flex justify-center bg-gray-400 " + props.classNames
     return (
         <div id="diode" className="absolute">

@@ -16,24 +16,22 @@ function App() {
   const [refreshUrl, setrefreshUrl] = React.useState(false);
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
-  const [openBlog, setOpenBlog] = React.useState(false);
   const [openHobbies, setOpenHobbies] = React.useState(false);
   const [openPets, setOpenPets] = React.useState(false);
   const closeAll = () => {
     setOpenMain(false);
     setOpenTech(false);
-    setOpenBlog(false);
     setOpenHobbies(false);
     setOpenPets(false);
   }
-  const setUrlParamTopic = (topic) => {
+  const setUrlParamTopic = (topic: string) => {
     const url = new URL(window.location.href);
     if (topic) {
       url.searchParams.set('topic', topic);
-      window.history.pushState(null, null, url);
+      window.history.pushState(null, "", url);
     } else {
       url.searchParams.delete('topic');
-      window.history.pushState(null, null, url);
+      window.history.pushState(null, "", url);
     }
   } 
 
@@ -76,7 +74,7 @@ function App() {
       setUrlParamTopic("");
     } 
   }
-  const goBack = (event) => {
+  const goBack = (event: Event) => {
     window.history.back();
     // Hack to avoid refresh url running before url has updated
     setTimeout(() => {

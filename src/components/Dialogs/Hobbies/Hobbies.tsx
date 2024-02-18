@@ -9,7 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { Gallery } from "react-grid-gallery";
 import "yet-another-react-lightbox/styles.css";
-import { images, CustomImage } from "./images";
+import { images } from "./images";
 
 const BackIcon = () => {
     return (
@@ -17,11 +17,17 @@ const BackIcon = () => {
     )
 };
 
-const HobbyDialog = (props) => {
+export interface Props {
+    open: boolean;
+    handleOpen: () => void;
+    goBack: (event: any) => void;
+};
+
+const HobbyDialog = (props:Props) => {
     return (
-        <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
-            <DialogHeader><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Hobbies</DialogHeader>
-            <DialogBody className="w-full xs:h-full sm:h-100 p-0 md:p-4">
+        <Dialog placeholder="Hobby Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+            <DialogHeader placeholder="Hobby Dialog Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Hobbies</DialogHeader>
+            <DialogBody placeholder="Hobby Dialog Body" className="w-full xs:h-full sm:h-100 p-0 md:p-4">
                 <div className="grid-container grid grid-cols-1 md:grid-cols-[40%_60%]">
                     <div className="grid md:grid-1 overflow-hidden">
                         <div style={{zIndex:10000}}>
@@ -33,7 +39,7 @@ const HobbyDialog = (props) => {
                         </div>
                     </div>
                     <div className="prose px-0 md:px-8 mt-4 md:mt-0">
-                        <ReactMarkdown style={{ width: '100% !important' }}>{
+                        <ReactMarkdown>{
                             `Living a rockstar lifestyle I love video and board games. I'm an old gymnast and see what I can still do with my buddies at our local gymnastics club.`
                         }
                         </ReactMarkdown>
@@ -44,8 +50,8 @@ const HobbyDialog = (props) => {
                 <br></br>
                 
             </DialogBody>
-            <DialogFooter>
-                <Button variant="gradient" color="green" onClick={props.handleOpen}>
+            <DialogFooter placeholder="Hobby Dialog Footer">
+                <Button placeholder="Close" variant="gradient" color="green" onClick={props.handleOpen}>
                     <span>Okie Dokie</span>
                 </Button>
             </DialogFooter>

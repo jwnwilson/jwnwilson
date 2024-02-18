@@ -2,7 +2,18 @@ import {
   Button
 } from "@material-tailwind/react";
 
-const Cpu = (props) => {
+export interface Props {
+  height: number;
+  width: number;
+  left: number;
+  top: number;
+  classNames? : string;
+  onClick: () => void;
+  children: React.ReactNode;
+  absolute: boolean;
+}
+
+const Cpu = (props: Props) => {
     const width = props.width;
     const height = props.height;
     const onClick = props.onClick;
@@ -13,11 +24,11 @@ const Cpu = (props) => {
     const left = props.left || 0;
     const top = props.top || 0;
   
-    const generateVerticalPins = (classNames) => {
+    const generateVerticalPins = (classNames: string) => {
       let pinsArray = [];
       for (let i = 0; i < VerticalPinNum; i++) {
         const pos = 9 + (i * pinGap);
-        let pinStyle = { width: pinWidth + "px", left: pos + "px", margin: 0 };
+        let pinStyle: { width: string, left: string, margin? : number } = { width: pinWidth + "px", left: pos + "px", margin: 0 };
         if (i === 0) {
           delete pinStyle.margin;
         }
@@ -28,11 +39,11 @@ const Cpu = (props) => {
       return pinsArray;
     }
   
-    const generateHorizontalPins = (classNames: string, direction: string) => {
+    const generateHorizontalPins = (classNames: string, direction: "height" | "top" | "left" | "right") => {
       let pinsArray = [];
       for (let i = 0; i < horizontalPinNum; i++) {
         const pos = 10 + (i * pinGap);
-        let pinStyle = { height: pinWidth + "px", top: pos + "px" };
+        let pinStyle: { height: string, top: string, left?: string, right?: string } = { height: pinWidth + "px", top: pos + "px" };
         pinStyle[direction] = "-28px";
         pinsArray.push(
           <div key={"pins-" + i} className={classNames} style={pinStyle}></div>
@@ -48,7 +59,12 @@ const Cpu = (props) => {
     const cpuClassNames = "flex flex-col relative border-2 border-black bg-gray-900 py-8 px-8 rounded-xl shadow-lg space-y-2 items-center z-10 justify-center " + props.classNames
     const cpuComponent = (
         <div className="absolute" style={{ height: height + "px", width: width + "px", left: left, top: top }}>
-            <Button onClick={onClick} className={cpuClassNames} style={{ height: height + "px", width: width + "px"}}>
+            <Button 
+              onClick={onClick}
+              className={cpuClassNames}
+              style={{ height: height + "px", width: width + "px"}}
+              placeholder="CPU"
+            >
                 {props.children}
             </Button>
             {topPins}

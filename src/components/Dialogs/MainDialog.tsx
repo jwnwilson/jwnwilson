@@ -8,7 +8,12 @@ import {
 } from "@material-tailwind/react";
 import profile from '../../assets/profile.jpg'
 
-const ClickableIcon = (props) => {
+export interface ClickableIconProps {
+    children: React.ReactNode;
+    url: string;
+  }
+
+const ClickableIcon = (props: ClickableIconProps) => {
     return (
         <a href={props.url} className="border-2 h-10 flex justify-center items-center hover:bg-gray-400 rounded-full" style={{minWidth:"50px"}}>
             {props.children}
@@ -49,17 +54,26 @@ const EmailIcon = () => {
     )
 }
 
-const MainDialog = (props) => {
+export interface Props {
+    open: boolean;
+    handleOpen: () => void;
+    handleOpenBlog: () => void;
+    handleOpenPets: () => void;
+    handleOpenTech: () => void;
+    handleOpenHobbies: () => void;
+}
+
+const MainDialog = (props: Props) => {
     return (
-        <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
-            <DialogHeader>Hello! I'm Noel Wilson</DialogHeader>
-            <DialogBody className="w-full xs:h-full sm:h-100">
+        <Dialog placeholder="Main Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+            <DialogHeader placeholder="Main Dialog Header">Hello! I'm Noel Wilson</DialogHeader>
+            <DialogBody placeholder="Main Dialog Body" className="w-full xs:h-full sm:h-100">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="flex justify-center">
                         <img style={{ maxHeight: 175 }} className="block mx-auto sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
                     </div>
                     <div className="grid-rows-4 grid-flow-col">
-                        <ReactMarkdown className="prose px-0 md:px-4 mt-2 md:mt-0" style={{ width: '100% !important' }}>
+                        <ReactMarkdown className="prose px-0 md:px-4 mt-2 md:mt-0">
                             {
                                 `I'm an experienced Software Engineer and Engineering Manager. 
     I Have worked in London for over 10 years in various industries.
@@ -87,19 +101,19 @@ const MainDialog = (props) => {
                 </div>
                 <br></br>
                 {/* Replace with links to other dialog boxes */}
-                <ReactMarkdown className="prose" style={{ width: '100% !important' }}>{
+                <ReactMarkdown className="prose">{
                     `## About Me`}
                 </ReactMarkdown>
                 <br></br>
                 <div className="grid-container grid gap-4 md:grid-cols-4">
-                    <Button onClick={props.handleOpenTech}>Technology</Button>
-                    <Button onClick={props.handleOpenBlog}>Blog</Button>
-                    <Button onClick={props.handleOpenHobbies}>Hobbies</Button>
-                    <Button onClick={props.handleOpenPets}>Pets</Button>
+                    <Button placeholder="Open Tech" onClick={props.handleOpenTech}>Technology</Button>
+                    <Button placeholder="Open Blog" onClick={props.handleOpenBlog}>Blog</Button>
+                    <Button placeholder="Open Hobbies" onClick={props.handleOpenHobbies}>Hobbies</Button>
+                    <Button placeholder="Open Pets" onClick={props.handleOpenPets}>Pets</Button>
                 </div>
             </DialogBody>
-            <DialogFooter>
-                <Button variant="gradient" color="green" onClick={props.handleOpen}>
+            <DialogFooter placeholder="Main Dialog Footer">
+                <Button placeholder="Close" variant="gradient" color="green" onClick={props.handleOpen}>
                     <span>Okie Dokie</span>
                 </Button>
             </DialogFooter>

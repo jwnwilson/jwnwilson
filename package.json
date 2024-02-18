@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "pnpm run build:client && pnpm run build:server",
+    "build:client": "tsc && vite build --ssrManifest --outDir dist/client",
+    "build:server": "tsc && vite build --ssr src/entry-server.jsx --outDir dist/server",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

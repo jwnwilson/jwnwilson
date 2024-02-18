@@ -1,4 +1,3 @@
-import ReactMarkdown from "react-markdown";
 import { useState } from "react";
 import {
     Button,
@@ -22,13 +21,19 @@ const BackIcon = () => {
     )
 };
 
-const PetDialog = (props) => {
+export interface Props {
+    open: boolean;
+    handleOpen: () => void;
+    goBack: (event: any) => void;
+};
+
+const PetDialog = (props: Props) => {
     const [index, setIndex] = useState(-1);
     const handleClick = (index: number, item: CustomImage) => setIndex(index);
     return (
-        <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
-            <DialogHeader><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Look at my Bunnies!</DialogHeader>
-            <DialogBody className="w-full xs:h-full sm:h-100">
+        <Dialog placeholder="Pet Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+            <DialogHeader placeholder="Pet Dialog Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Look at my Bunnies!</DialogHeader>
+            <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Pet Dialog Body">
                 <div className="grid-container grid md:grid-cols-1">
                     <div className="grid md:grid-1">
                         <div style={{zIndex:10000}}>
@@ -48,8 +53,13 @@ const PetDialog = (props) => {
                 </div>
                 <br></br>
             </DialogBody>
-            <DialogFooter>
-                <Button variant="gradient" color="green" onClick={props.handleOpen}>
+            <DialogFooter placeholder="Pet Footer">
+                <Button 
+                    variant="gradient"
+                    color="green"
+                    onClick={props.handleOpen}
+                    placeholder="Close"
+                >
                     <span>Okie Dokie</span>
                 </Button>
             </DialogFooter>

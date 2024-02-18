@@ -1,4 +1,11 @@
-const Circuit = (props) => {
+export interface Props {
+    startX: number;
+    startY: number;
+    width?: number;
+    points: Array<Array<number>>;
+}
+
+const Circuit = (props: Props) => {
     const { startX, startY, width } = props;
     const strokeWidth = width || 4;
     let circuitPoints = `${startX},${startY} `;
