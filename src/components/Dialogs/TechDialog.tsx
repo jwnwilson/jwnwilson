@@ -9,10 +9,16 @@ import {
 import pythonLogo from '../../assets/technology/PythonLogo.png'
 import tsLogo from '../../assets/technology/ts_logo.png'
 
+const BackIcon = () => {
+    return (
+        <svg height="25" id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512" width="25"><polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "/></svg>
+    )
+}
+
 const TechDialog = (props) => {
     return (
         <Dialog open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
-            <DialogHeader>Technology</DialogHeader>
+            <DialogHeader><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Technology</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="grid grid-cols-2  md:grid-cols-1 flex justify-center items-center">

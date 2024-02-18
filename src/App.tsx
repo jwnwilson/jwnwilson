@@ -12,20 +12,8 @@ import TechDialog from "./components/Dialogs/TechDialog";
 import HobbyDialog from "./components/Dialogs/Hobbies";
 import PetDialog from "./components/Dialogs/Pets";
 
-const setUrlParamTopic = (topic) => {
-  const url = new URL(window.location.href);
-  
-  if (topic) {
-    url.searchParams.set('topic', topic);
-    window.history.replaceState(null, null, url);
-  } else {
-    url.searchParams.delete('topic');
-    window.history.replaceState(null, null, url);
-  }
-} 
-
 function App() {
-  const [topic, setTopic] = React.useState("");
+  const [refreshUrl, setrefreshUrl] = React.useState(false);
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
   const [openBlog, setOpenBlog] = React.useState(false);
@@ -38,6 +26,17 @@ function App() {
     setOpenHobbies(false);
     setOpenPets(false);
   }
+  const setUrlParamTopic = (topic) => {
+    const url = new URL(window.location.href);
+    if (topic) {
+      url.searchParams.set('topic', topic);
+      window.history.pushState(null, null, url);
+    } else {
+      url.searchParams.delete('topic');
+      window.history.pushState(null, null, url);
+    }
+  } 
+
   const handleOpenMain = () => {
     closeAll();
     if (!openMain) {
@@ -77,11 +76,18 @@ function App() {
       setUrlParamTopic("");
     } 
   }
+  const goBack = (event) => {
+    window.history.back();
+    setTimeout(() => {
+      setrefreshUrl(!refreshUrl);
+    }, 0);
+  }
 
   // Update topic from url param
   useEffect(() => {
     const queryParameters = new URLSearchParams(window.location.search);
     const topicParam = queryParameters.get("topic") || "";
+    console.log(topicParam)
     switch(topicParam) {
       case "main":
         handleOpenMain();
@@ -96,7 +102,7 @@ function App() {
         handleOpenPets();
         break;
     }
-  }, []);
+  }, [refreshUrl]);
 
   return (
     <div className="flex h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
@@ -270,7 +276,7 @@ function App() {
           handleOpenHobbies={handleOpenHobbies}
           handleOpenPets={handleOpenPets}
         ></MainDialog>
-        <TechDialog open={openTech} handleOpen={handleOpenTech}></TechDialog>
+        <TechDialog open={openTech} handleOpen={handleOpenTech} goBack={goBack}></TechDialog>
         <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies}></HobbyDialog>
         <PetDialog  open={openPets} handleOpen={handleOpenPets}></PetDialog>
       </div>
