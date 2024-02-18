@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 
 import './App.css'
@@ -12,7 +12,20 @@ import TechDialog from "./components/Dialogs/TechDialog";
 import HobbyDialog from "./components/Dialogs/Hobbies";
 import PetDialog from "./components/Dialogs/Pets";
 
+const setUrlParamTopic = (topic) => {
+  const url = new URL(window.location.href);
+  
+  if (topic) {
+    url.searchParams.set('topic', topic);
+    window.history.replaceState(null, null, url);
+  } else {
+    url.searchParams.delete('topic');
+    window.history.replaceState(null, null, url);
+  }
+} 
+
 function App() {
+  const [topic, setTopic] = React.useState("");
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
   const [openBlog, setOpenBlog] = React.useState(false);
@@ -27,23 +40,63 @@ function App() {
   }
   const handleOpenMain = () => {
     closeAll();
-    setOpenMain(!openMain);
+    if (!openMain) {
+      setOpenMain(true);
+      setUrlParamTopic("main");
+    } else {
+      setUrlParamTopic("");
+    } 
   }
   const handleOpenTech = () => {
     closeAll();
-    setOpenTech(!openTech);
+    if (!openTech) {
+      setOpenTech(true);
+      setUrlParamTopic("technology");
+    } else {
+      setUrlParamTopic("");
+    } 
   }
   const handleOpenBlog = () => {
     window.location.href = 'https://blog.noel-wilson.co.uk/';
   }
   const handleOpenHobbies = () => {
     closeAll();
-    setOpenHobbies(!openHobbies);
+    if (!openHobbies) {
+      setOpenHobbies(true);
+      setUrlParamTopic("hobbies");
+    } else {
+      setUrlParamTopic("");
+    } 
   }
   const handleOpenPets = () => {
     closeAll();
-    setOpenPets(!openPets);
+    if (!openPets) {
+      setOpenPets(true);
+      setUrlParamTopic("pets");
+    } else {
+      setUrlParamTopic("");
+    } 
   }
+
+  // Update topic from url param
+  useEffect(() => {
+    const queryParameters = new URLSearchParams(window.location.search);
+    const topicParam = queryParameters.get("topic") || "";
+    switch(topicParam) {
+      case "main":
+        handleOpenMain();
+        break;
+      case "technology":
+        handleOpenTech();
+        break;
+      case "hobbies":
+        handleOpenHobbies();
+        break;
+      case "pets":
+        handleOpenPets();
+        break;
+    }
+  }, []);
 
   return (
     <div className="flex h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
