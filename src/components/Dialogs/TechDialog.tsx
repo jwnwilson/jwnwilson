@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import Image from 'next/image';
 import {
     Button,
     Dialog,
@@ -28,8 +29,8 @@ const TechDialog = (props: Props) => {
             <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Technology Dialog">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="grid grid-cols-2  md:grid-cols-1 flex justify-center items-center">
-                        <img className="w-10 md:w-32 block mx-auto" src={pythonLogo} alt="Python Logo" />
-                        <img className="w-16 md:w-32 block mx-auto" src={tsLogo} alt="Typescript Logo" />
+                        <Image className="object-contain w-10 md:w-32 block mx-auto" src={pythonLogo} alt="Python Logo" />
+                        <Image className="object-contain w-16 md:w-32 block mx-auto" src={tsLogo} alt="Typescript Logo" />
                     </div>
                     <div>
                         <ReactMarkdown className="prose px-4 mt-2 md:mt-0 ">{

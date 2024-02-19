@@ -1,8 +1,5 @@
 import { Image } from "react-grid-gallery";
 
-import board_game_01 from '../../../assets/hobbies/board_games.jpg'
-import gym_01 from '../../../assets/hobbies/gym_thumbs_up.jpg'
-
 export interface CustomImage extends Image {
   original: string;
 }
@@ -10,8 +7,8 @@ export interface CustomImage extends Image {
 
 export const images: CustomImage[] = [
   {
-    src: board_game_01,
-    original: board_game_01,
+    src: '/assets/hobbies/board_games.jpg',
+    original: '/assets/hobbies/board_games.jpg',
     width: 200,
     height: 150,
     tags: [
@@ -20,10 +17,10 @@ export const images: CustomImage[] = [
     caption: "Board game library",
   },
   {
-    src: gym_01,
-    original: gym_01,
-    width: 150,
-    height: 200,
+    src: '/assets/hobbies/gym_thumbs_up.jpg',
+    original: '/assets/hobbies/gym_thumbs_up.jpg',
+    width: 300,
+    height: 400,
     tags: [
       { value: "In the gym", title: "In the gym" },
     ],

@@ -1,17 +1,17 @@
 import { Image } from "react-grid-gallery";
 
-import millie_01 from '../../../assets/pets/millie_01.jpg'
-import baby_millie_01 from '../../../assets/pets/baby_millie.jpg'
-import baby_millie_02 from '../../../assets/pets/baby_millie_2.jpg'
-import billy_01 from '../../../assets/pets/billy_01.jpg'
-import billy_02 from '../../../assets/pets/billy_02.jpg'
-import baby_billy_01 from '../../../assets/pets/baby_billy.jpg'
-import baby_billy_02 from '../../../assets/pets/baby_billy_2.jpg'
-import xmas_billy_01 from '../../../assets/pets/xmas_billy.jpg'
-import xmas_millie_01 from '../../../assets/pets/xmas_millie.jpg'
-import billy_kitchen from '../../../assets/pets/billy_kitchen.jpg'
-import billy_living_room from '../../../assets/pets/billy_livingroom.jpg'
-import billy_millie_01 from '../../../assets/pets/billy_millie_01.jpg'
+const millie_01 = '/assets/pets/millie_01.jpg'
+const baby_millie_01 ='/assets/pets/baby_millie.jpg'
+const baby_millie_02 ='/assets/pets/baby_millie_2.jpg'
+const billy_01 ='/assets/pets/billy_01.jpg'
+const billy_02 ='/assets/pets/billy_02.jpg'
+const baby_billy_01 ='/assets/pets/baby_billy.jpg'
+const baby_billy_02 ='/assets/pets/baby_billy_2.jpg'
+const xmas_billy_01 ='/assets/pets/xmas_billy.jpg'
+const xmas_millie_01 ='/assets/pets/xmas_millie.jpg'
+const billy_kitchen ='/assets/pets/billy_kitchen.jpg'
+const billy_living_room ='/assets/pets/billy_livingroom.jpg'
+const billy_millie_01 ='/assets/pets/billy_millie_01.jpg'
 
 
 
