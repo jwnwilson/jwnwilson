@@ -71,7 +71,7 @@ const MainDialog = (props: Props) => {
             <DialogBody placeholder="Main Dialog Body" className="w-full xs:h-full sm:h-100">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="flex justify-center">
-                        <Image className="object-contain block mx-auto h-24 w-24 md:h-48 md:w-48 sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
+                        <Image className="object-contain block mx-auto h-24 w-24 md:h-48 md:w-48 sm:mx-0 sm:shrink-0" src="/assets/profile.jpg" width={800} height={800} alt="Noel's Face" />
                     </div>
                     <div className="grid-rows-4 grid-flow-col">
                         <ReactMarkdown className="prose px-0 md:px-4 mt-2 md:mt-0">

@@ -7,8 +7,6 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
-import pythonLogo from '../../assets/technology/PythonLogo.png'
-import tsLogo from '../../assets/technology/ts_logo.png'
 
 const BackIcon = () => {
     return (
@@ -29,8 +27,8 @@ const TechDialog = (props: Props) => {
             <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Technology Dialog">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
                     <div className="grid grid-cols-2  md:grid-cols-1 flex justify-center items-center">
-                        <Image className="object-contain w-10 md:w-32 block mx-auto" src={pythonLogo} alt="Python Logo" />
-                        <Image className="object-contain w-16 md:w-32 block mx-auto" src={tsLogo} alt="Typescript Logo" />
+                        <Image className="object-contain w-10 md:w-32 block mx-auto" src="/assets/technology/PythonLogo.png" width={400} height={400}  alt="Python Logo" />
+                        <Image className="object-contain w-16 md:w-32 block mx-auto" src="/assets/technology/ts_logo.png" width={400} height={400}  alt="Typescript Logo" />
                     </div>
                     <div>
                         <ReactMarkdown className="prose px-4 mt-2 md:mt-0 ">{

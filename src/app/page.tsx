@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import Image from 'next/image'
 
 import './App.css'
-import profile from '../assets/profile.jpg'
 import Cpu from '../components/Cpu';
 import SemiConductor from '../components/Semiconductor';
 import Circuit from '../components/Circuit';
@@ -117,7 +116,7 @@ function App() {
       <div className="flex min-w-[1000px] min-h-[900px]">
         <Cpu width={250} height={250} top={332} left={375} absolute={true} onClick={handleOpenMain}>
           <div className="h-24 space-y-0.5">
-            <Image className="block mx-auto h-24 w-24 rounded-full sm:mx-0 sm:shrink-0" src={profile} alt="Noel's Face" />
+            <Image className="block mx-auto h-24 w-24 rounded-full sm:mx-0 sm:shrink-0" src="/assets/profile.jpg" width={800} height={800} alt="Noel's Face" />
           </div>
           <div className="text-center space-y-2 sm:text-left">
             <div className="space-y-0.5 text-center">
@@ -182,7 +181,7 @@ function App() {
         <SemiConductor width={40} height={50} top={690} left={350} absolute={true} rotate={"90deg"} />
         {/* Diode group 1 */}
         <Circuit startX={410} startY={35} points={[[190, 0]]} width={8} />
-        <Circuit startX={590} startY={90} points={[[-180, 0], [-300, -75], [-540, -75]]} width={8} />
+        <Circuit startX={590} startY={90} points={[[-180, 0], [-300, -80], [-540, -80]]} width={8} />
         <Diode width={50} height={25} left={400} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={450} top={50} rotate={"90deg"} color={"orange"}></Diode>
         <Diode width={50} height={25} left={500} top={50} rotate={"90deg"} color={"orange"}></Diode>
