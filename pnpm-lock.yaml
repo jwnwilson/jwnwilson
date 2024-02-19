@@ -26,9 +26,6 @@ dependencies:
   react-router:
     specifier: ^6.22.1
     version: 6.22.1(react@18.2.0)
-  react-router-dom:
-    specifier: ^6.22.1
-    version: 6.22.1(react-dom@18.2.0)(react@18.2.0)
   yet-another-react-lightbox:
     specifier: ^3.17.0
     version: 3.17.0(react-dom@18.2.0)(react@18.2.0)
@@ -2533,19 +2530,6 @@ packages:
       vfile: 6.0.1
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /react-router-dom@6.22.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-iwMyyyrbL7zkKY7MRjOVRy+TMnS/OPusaFVxM2P11x9dzSzGmLsebkCvYirGq0DWB9K9hOspHYYtDz33gE5Duw==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-    dependencies:
-      '@remix-run/router': 1.15.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.22.1(react@18.2.0)
     dev: false
 
   /react-router@6.22.1(react@18.2.0):
