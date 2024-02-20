@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" type="image/png+xml" href="/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
         <meta name="description" content="Noel Wilson, software engineer"></meta>
         <meta name="keywords" content="noel, wilson, noel wilson, python, typescript, developer, software, engineer"></meta>
         <meta name="author" content="Noel Wilson"></meta>
