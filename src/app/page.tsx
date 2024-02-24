@@ -112,7 +112,7 @@ function App() {
   }, [refreshUrl]);
 
   return (
-    <div className="flex h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
+    <div className="flex absolute inset-0 h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
       <div className="flex min-w-[1000px] min-h-[900px]">
         <Cpu width={250} height={250} top={332} left={375} absolute={true} onClick={handleOpenMain}>
           <div className="h-24 space-y-0.5">
