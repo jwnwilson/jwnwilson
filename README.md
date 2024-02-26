@@ -28,7 +28,7 @@ I specialise in building and leading efficient teams, bringing people together t
 When deploying this site:
 
 1. run `pnpm build`
-2. Copy dist folder to static file server
+2. Copy dist folder to static file S3 folder
 3. Set header: Content-Encoding: gzip
  
 https://stackoverflow.com/questions/24209671/setting-http-headers-for-all-files-in-aws-s3-bucket

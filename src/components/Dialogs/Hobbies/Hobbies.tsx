@@ -10,6 +10,7 @@ import {
 import { Gallery } from "react-grid-gallery";
 import "yet-another-react-lightbox/styles.css";
 import { images } from "./images";
+import { useEffect } from "react";
 
 const BackIcon = () => {
     return (
@@ -24,8 +25,23 @@ export interface Props {
 };
 
 const HobbyDialog = (props:Props) => {
+    const scrollToTop = () => {
+        const div = document.getElementById("hobbyDialog");
+        if (div) {
+            setTimeout(() => {
+                div.scroll({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }, 50);
+        }
+    };
+
+    useEffect(() => {
+        scrollToTop();
+    }, [props.open]);
     return (
-        <Dialog placeholder="Hobby Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+        <Dialog id={"hobbyDialog"} placeholder="Hobby Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto">
             <DialogHeader placeholder="Hobby Dialog Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Hobbies</DialogHeader>
             <DialogBody placeholder="Hobby Dialog Body" className="w-full xs:h-full sm:h-100 p-0 md:p-4">
                 <div className="grid-container grid grid-cols-1 md:grid-cols-[40%_60%]">

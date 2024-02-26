@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     Button,
     Dialog,
@@ -30,8 +30,24 @@ export interface Props {
 const PetDialog = (props: Props) => {
     const [index, setIndex] = useState(-1);
     const handleClick = (index: number, item: CustomImage) => setIndex(index);
+    const scrollToTop = () => {
+        const div = document.getElementById("petDialog");
+        if (div) {
+            setTimeout(() => {
+                div.scroll({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }, 50);
+        }
+    };
+
+    useEffect(() => {
+        scrollToTop();
+    }, [props.open]);
+    
     return (
-        <Dialog placeholder="Pet Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+        <Dialog id={"petDialog"} placeholder="Pet Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto">
             <DialogHeader placeholder="Pet Dialog Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Look at my Bunnies!</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Pet Dialog Body">
                 <div className="grid-container grid md:grid-cols-1">

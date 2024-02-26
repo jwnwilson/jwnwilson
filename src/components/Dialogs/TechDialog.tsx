@@ -7,6 +7,7 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
+import { useEffect, useRef } from "react";
 
 const BackIcon = () => {
     return (
@@ -21,8 +22,24 @@ export interface Props {
 }
 
 const TechDialog = (props: Props) => {
+    const scrollToTop = () => {
+        const div = document.getElementById("techDialog");
+        if (div) {
+            setTimeout(() => {
+                div.scroll({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }, 50);
+        }
+    };
+
+    useEffect(() => {
+        scrollToTop();
+    }, [props.open]);
+
     return (
-        <Dialog placeholder="Technology Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full h-screen md:h-auto overflow-y-auto">
+        <Dialog id="techDialog" placeholder="Technology Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto">
             <DialogHeader placeholder="Technology Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Technology</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Technology Dialog">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">

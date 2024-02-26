@@ -91,7 +91,6 @@ function App() {
   useEffect(() => {
     const queryParameters = new URLSearchParams(window.location.search);
     const topicParam = queryParameters.get("topic") || "";
-    console.log(topicParam)
     switch(topicParam) {
       case "main":
         handleOpenMain();
