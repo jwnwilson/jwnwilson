@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && gzipper compress ./out ./dist --output-file-format [filename].[ext]",
+    "build": "rm -rf ./dist && next build && gzipper compress ./out ./dist --output-file-format [filename].[ext]",
     "start": "next start",
     "lint": "next lint"
   },

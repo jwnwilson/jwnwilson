@@ -14,9 +14,11 @@ import HobbyDialog from "../components/Dialogs/Hobbies";
 import PetDialog from "../components/Dialogs/Pets";
 
 const isTouchDevice = () => {
-  return (('ontouchstart' in window) ||
-     (navigator.maxTouchPoints > 0) ||
-     (navigator.msMaxTouchPoints > 0));
+  return (
+    ('ontouchstart' in window) ||
+    (navigator.maxTouchPoints > 0) ||
+    // @ts-ignore: For browser compatibility
+    (navigator.msMaxTouchPoints > 0));
 }
 
 const getTopic = () => {
