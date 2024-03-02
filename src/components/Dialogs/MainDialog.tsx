@@ -66,7 +66,7 @@ export interface Props {
 
 const MainDialog = (props: Props) => {
     return (
-        <Dialog placeholder="Main Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto">
+        <Dialog placeholder="Main Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto" style={{maxHeight: "100%"}}>
             <DialogHeader placeholder="Main Dialog Header">Hello! I'm Noel Wilson</DialogHeader>
             <DialogBody placeholder="Main Dialog Body" className="w-full xs:h-full sm:h-100">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">

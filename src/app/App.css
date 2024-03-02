@@ -32,3 +32,11 @@
     stroke-opacity: 1;
   }
 }
+
+.zoom-button {
+  background-color: black;
+  width: 50px;
+  color: white;
+  border-radius: 1em;
+  margin-top: 5px;
+}

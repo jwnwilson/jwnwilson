@@ -47,7 +47,7 @@ const PetDialog = (props: Props) => {
     }, [props.open]);
     
     return (
-        <Dialog id={"petDialog"} placeholder="Pet Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto">
+        <Dialog id={"petDialog"} placeholder="Pet Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto" style={{maxHeight: "100%"}}>
             <DialogHeader placeholder="Pet Dialog Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Look at my Bunnies!</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Pet Dialog Body">
                 <div className="grid-container grid md:grid-cols-1">

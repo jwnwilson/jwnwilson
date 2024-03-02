@@ -1,7 +1,8 @@
 'use client'
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from 'next/image'
-import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
+// @ts-ignore: No types available for this lib
+import { MapInteractionCSS } from "react-map-interaction";
 
 import './App.css'
 import Cpu from '../components/Cpu';
@@ -27,7 +28,15 @@ const getTopic = () => {
 }
 
 function App() {
-  const dragStartPositionXYRef = useRef<{ x: number; y: number }>();
+  let screenWidth = 0;
+  let screenHeight = 0;
+  // Need this for static site generation
+  if (typeof window !== 'undefined') {
+    screenWidth = window.innerWidth;
+    screenHeight = window.innerHeight;
+  }
+  const [width, setWidth] = useState(screenWidth);
+  const [height, setHeight] = useState(screenHeight);
   const [refreshUrl, setrefreshUrl] = React.useState(false);
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
@@ -125,27 +134,29 @@ function App() {
     }
   }, [refreshUrl]);
 
+  const xOffset = -(1000 - width) / 2;
+  const yOffset = -(900 - height) / 2;
+
   return (
     <div className="flex absolute inset-0 h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900 cursor-pointer">
-      <Draggable
-        onStart={(event: DraggableEvent, data: DraggableData) => {
-          // Work around for touch screen devices
-          dragStartPositionXYRef.current = { x: data.x, y: data.y };
+      <MapInteractionCSS
+        showControls
+        defaultValue={{
+          scale: 1,
+          translation: { x: xOffset, y: yOffset }
         }}
-        onStop={(e: DraggableEvent, data: DraggableData) => {
-          // Work around for touch screen devices
-          if (isTouchDevice()) {
-            const THRESHOLD = 2;
-            const { x, y } = dragStartPositionXYRef.current ?? { x: 0, y: 0 };
-            const wasDragged = Math.abs(data.x - x) > THRESHOLD && Math.abs(data.y - y) > THRESHOLD;
-        
-            if (!wasDragged) {
-              (event?.target as HTMLButtonElement)?.click?.();
-            }
-          }
+        minScale={0.5}
+        maxScale={3}
+        translationBounds={{
+          xMax: 400,
+          yMax: 200
         }}
+        btnClass="zoom-button"
       >
-      <div className="flex min-w-[1000px] min-h-[900px]">
+      <div className="flex min-w-[1000px] min-h-[900px]" 
+        onTouchEnd={(event) => {
+          (event?.target as HTMLButtonElement)?.click?.();
+        }}>
         <Cpu width={250} height={250} top={332} left={375} absolute={true} onClick={handleOpenMain}>
           <div className="h-24 space-y-0.5">
             <Image className="block mx-auto h-24 w-24 rounded-full sm:mx-0 sm:shrink-0" src="/assets/profile.jpg" width={800} height={800} alt="Noel's Face" />
@@ -319,8 +330,7 @@ function App() {
         <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies} goBack={goBack}></HobbyDialog>
         <PetDialog  open={openPets} handleOpen={handleOpenPets} goBack={goBack}></PetDialog>
       </div>
-      </Draggable>
-      
+      </MapInteractionCSS>
     </div>
   )
 }

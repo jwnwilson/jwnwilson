@@ -39,7 +39,15 @@ const TechDialog = (props: Props) => {
     }, [props.open]);
 
     return (
-        <Dialog id="techDialog" placeholder="Technology Dialog" open={props.open} handler={props.handleOpen} size={"lg"} className="p-8 w-full absolute inset-0 md:relative md:h-auto overflow-y-auto">
+        <Dialog 
+                id="techDialog" 
+                placeholder="Technology Dialog" 
+                open={props.open} 
+                handler={props.handleOpen} 
+                size={"lg"} 
+                className="p-8 w-full absolute inset-0 md:relative md:h-100 overflow-y-auto"
+                style={{maxHeight: "100%"}}
+            >
             <DialogHeader placeholder="Technology Header"><a onClick={props.goBack} style={{cursor: 'pointer'}}><BackIcon></BackIcon></a>Technology</DialogHeader>
             <DialogBody className="w-full xs:h-full sm:h-100" placeholder="Technology Dialog">
                 <div className="grid-container grid md:grid-cols-[30%_70%]">
