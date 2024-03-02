@@ -138,20 +138,23 @@ function App() {
   const yOffset = -(900 - height) / 2;
 
   return (
-    <div className="flex absolute inset-0 h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900 cursor-pointer">
+    <div className="flex absolute inset-0 h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900 cursor-pointer map-container">
       <MapInteractionCSS
         showControls
         defaultValue={{
           scale: 1,
-          translation: { x: xOffset, y: yOffset }
+          translation: { x: 0, y: 0 }
         }}
         minScale={0.5}
         maxScale={3}
         translationBounds={{
           xMax: 400,
-          yMax: 200
+          yMax: 200,
+          xMin: -400,
+          yMin: -200
         }}
         btnClass="zoom-button"
+        controlsClass="zoom-container"
       >
       <div className="flex min-w-[1000px] min-h-[900px]" 
         onTouchEnd={(event) => {

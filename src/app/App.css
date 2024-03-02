@@ -40,3 +40,16 @@
   border-radius: 1em;
   margin-top: 5px;
 }
+
+.map-container > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zoom-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block !important;
+}
