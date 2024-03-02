@@ -1,6 +1,7 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from 'next/image'
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 
 import './App.css'
 import Cpu from '../components/Cpu';
@@ -12,7 +13,19 @@ import TechDialog from "../components/Dialogs/TechDialog";
 import HobbyDialog from "../components/Dialogs/Hobbies";
 import PetDialog from "../components/Dialogs/Pets";
 
+const isTouchDevice = () => {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
+}
+
+const getTopic = () => {
+  const queryParameters = new URLSearchParams(window.location.search);
+  return queryParameters.get("topic") || "";
+}
+
 function App() {
+  const dragStartPositionXYRef = useRef<{ x: number; y: number }>();
   const [refreshUrl, setrefreshUrl] = React.useState(false);
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
@@ -26,7 +39,8 @@ function App() {
   }
   const setUrlParamTopic = (topic: string) => {
     const url = new URL(window.location.href);
-    if (topic) {
+    const currentTopic = getTopic();
+    if (topic && topic !== currentTopic) {
       url.searchParams.set('topic', topic);
       setTimeout(() => {
         window.history.pushState(null, "", url);
@@ -89,8 +103,7 @@ function App() {
 
   // Update topic from url param
   useEffect(() => {
-    const queryParameters = new URLSearchParams(window.location.search);
-    const topicParam = queryParameters.get("topic") || "";
+    const topicParam = getTopic();
     switch(topicParam) {
       case "main":
         handleOpenMain();
@@ -111,7 +124,25 @@ function App() {
   }, [refreshUrl]);
 
   return (
-    <div className="flex absolute inset-0 h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900">
+    <div className="flex absolute inset-0 h-screen w-screen justify-center items-center overflow-hidden bg-emerald-900 cursor-pointer">
+      <Draggable
+        onStart={(event: DraggableEvent, data: DraggableData) => {
+          // Work around for touch screen devices
+          dragStartPositionXYRef.current = { x: data.x, y: data.y };
+        }}
+        onStop={(e: DraggableEvent, data: DraggableData) => {
+          // Work around for touch screen devices
+          if (isTouchDevice()) {
+            const THRESHOLD = 2;
+            const { x, y } = dragStartPositionXYRef.current ?? { x: 0, y: 0 };
+            const wasDragged = Math.abs(data.x - x) > THRESHOLD && Math.abs(data.y - y) > THRESHOLD;
+        
+            if (!wasDragged) {
+              (event?.target as HTMLButtonElement)?.click?.();
+            }
+          }
+        }}
+      >
       <div className="flex min-w-[1000px] min-h-[900px]">
         <Cpu width={250} height={250} top={332} left={375} absolute={true} onClick={handleOpenMain}>
           <div className="h-24 space-y-0.5">
@@ -286,6 +317,8 @@ function App() {
         <HobbyDialog open={openHobbies} handleOpen={handleOpenHobbies} goBack={goBack}></HobbyDialog>
         <PetDialog  open={openPets} handleOpen={handleOpenPets} goBack={goBack}></PetDialog>
       </div>
+      </Draggable>
+      
     </div>
   )
 }
