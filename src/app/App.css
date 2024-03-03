@@ -42,14 +42,12 @@
 }
 
 .map-container > div > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: visible !important;
 }
 
 .zoom-container {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 50px;
   display: block !important;
 }
