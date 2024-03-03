@@ -1,9 +1,10 @@
 import Cpu from './Cpu';
 import SemiConductor from './Semiconductor';
-import Circuit from './Circuit';
+import {Circuit, Circuits} from './Circuit';
 
 export default {
     Cpu,
     Circuit,
+    Circuits,
     SemiConductor
 }
