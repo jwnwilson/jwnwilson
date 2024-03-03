@@ -48,4 +48,27 @@ const Circuit = (props: Props) => {
     )
 }
 
-export default Circuit;
+export interface CircuitsProps {
+    startX: number;
+    startY: number;
+    width?: number;
+    topIncrement?: number;
+    leftIncrement?: number;
+    circuits: Array<Array<Array<number>>>;
+}
+
+const Circuits = (props: CircuitsProps) => {
+    const leftIncrement = props.leftIncrement || 0;
+    const topIncrement = props.topIncrement || 0;
+    return props.circuits.map((circuit: Array<Array<number>>, index: number) => {
+        return (
+            <Circuit
+                startX={props.startX + (leftIncrement * index)}
+                startY={props.startY + (topIncrement* index)}
+                points={circuit}
+            ></Circuit>
+        )
+    })
+}
+
+export { Circuit, Circuits };
