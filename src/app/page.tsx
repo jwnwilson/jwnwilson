@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useRef, useState } from "react";
-import ReactGA from 'react-ga';
 import Image from 'next/image'
 // @ts-ignore: No types available for this lib
 import { MapInteractionCSS } from "react-map-interaction";
