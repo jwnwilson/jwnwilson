@@ -14,29 +14,13 @@ import TechDialog from "../components/Dialogs/TechDialog";
 import HobbyDialog from "../components/Dialogs/Hobbies";
 import PetDialog from "../components/Dialogs/Pets";
 
-const isTouchDevice = () => {
-  return (
-    ('ontouchstart' in window) ||
-    (navigator.maxTouchPoints > 0) ||
-    // @ts-ignore: For browser compatibility
-    (navigator.msMaxTouchPoints > 0));
-}
-
 const getTopic = () => {
   const queryParameters = new URLSearchParams(window.location.search);
   return queryParameters.get("topic") || "";
 }
 
 function App() {
-  let screenWidth = 0;
-  let screenHeight = 0;
-  // Need this for static site generation
-  if (typeof window !== 'undefined') {
-    screenWidth = window.innerWidth;
-    screenHeight = window.innerHeight;
-  }
-  const [width, setWidth] = useState(screenWidth);
-  const [height, setHeight] = useState(screenHeight);
+  const [touchPosition, setTouchPosition] = React.useState({x:0, y:0});
   const [refreshUrl, setrefreshUrl] = React.useState(false);
   const [openMain, setOpenMain] = React.useState(false);
   const [openTech, setOpenTech] = React.useState(false);
@@ -155,8 +139,16 @@ function App() {
           controlsClass="zoom-container"
         >
           <div className="min-w-[1000px] min-h-[900px]"
+            onTouchStart={(event) => {
+              setTouchPosition({x: event.touches[0].pageX, y: event.touches[0].pageY});
+            }}
             onTouchEnd={(event) => {
-              (event?.target as HTMLButtonElement)?.click?.();
+              const MOVE_THRESHHOLD = 5;
+              const currentPos = {x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
+              const movement = Math.abs(touchPosition.x - currentPos.x) + Math.abs(touchPosition.y - currentPos.y)
+              if (movement < MOVE_THRESHHOLD) {
+                (event?.target as HTMLButtonElement)?.click?.();
+              }
             }}>
             <Cpu width={150} height={150} top={50} left={50} absolute={true} onClick={handleOpenTech}>
               <div className="text-center space-y-2 sm:text-left">

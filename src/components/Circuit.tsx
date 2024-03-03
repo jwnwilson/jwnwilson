@@ -66,6 +66,7 @@ const Circuits = (props: CircuitsProps) => {
                 startX={props.startX + (leftIncrement * index)}
                 startY={props.startY + (topIncrement* index)}
                 points={circuit}
+                key={"circuit_" + index}
             ></Circuit>
         )
     })
