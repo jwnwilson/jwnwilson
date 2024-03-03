@@ -1,1 +1,2 @@
 - Fill out circuit design 
+- Don't click on scale in on mobile
