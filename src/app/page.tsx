@@ -130,10 +130,10 @@ function App() {
           minScale={0.5}
           maxScale={3}
           translationBounds={{
-            xMax: 400,
-            yMax: 200,
-            xMin: -400,
-            yMin: -200
+            // xMax: 400,
+            // yMax: 200,
+            // xMin: -400,
+            // yMin: -200
           }}
           btnClass="zoom-button"
           controlsClass="zoom-container"
