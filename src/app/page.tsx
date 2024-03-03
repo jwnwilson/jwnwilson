@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from "react";
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import Image from 'next/image'
 // @ts-ignore: No types available for this lib
 import { MapInteractionCSS } from "react-map-interaction";
@@ -15,7 +15,7 @@ import TechDialog from "../components/Dialogs/TechDialog";
 import HobbyDialog from "../components/Dialogs/Hobbies";
 import PetDialog from "../components/Dialogs/Pets";
 
-ReactGA.initialize('UA-111701482-1');
+ReactGA.initialize('G-X00L7QP4RQ');
 
 const getTopic = () => {
   const queryParameters = new URLSearchParams(window.location.search);
@@ -123,7 +123,7 @@ function App() {
 
   // Google analytics
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.send("pageview");
   }, []);
 
   return (
