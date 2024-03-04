@@ -17,11 +17,14 @@ I specialise in building and leading efficient teams, bringing people together t
 * Python & Typescript
 * Dev Ops & Continous Delivery
 * Infrastructure as Code
-* Dev Ops & Continuous Delivery
 * AWS & GCP & Azure
 * Serverless & Containerisation
 * Team building and mentoring
 
+# Running this project
+
+1. run `pnpm i`
+2. run `pnpm dev`
 
 # Deployment
 
