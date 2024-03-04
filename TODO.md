@@ -1,4 +1,3 @@
 - Small screen technology not fitting and icons overlap
 - Drag doesn't work on edge of screen
-- Can't see zoom on mobile
 - Fill out circuit design 
