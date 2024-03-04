@@ -1,6 +1,6 @@
 # Hello!
 
-Welcome to my github! This repo also doubles as my person website which I want to use as a sandbox and to link to my blog.
+Welcome to my github! This repo also doubles as my personal website which I want to use as a sandbox and to link to my blog.
 
 [Check it out!](https://noel-wilson.co.uk)
 
@@ -17,11 +17,14 @@ I specialise in building and leading efficient teams, bringing people together t
 * Python & Typescript
 * Dev Ops & Continous Delivery
 * Infrastructure as Code
-* Dev Ops & Continuous Delivery
 * AWS & GCP & Azure
 * Serverless & Containerisation
 * Team building and mentoring
 
+# Running this project
+
+1. run `pnpm i`
+2. run `pnpm dev`
 
 # Deployment
 
