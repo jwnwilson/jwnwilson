@@ -1,6 +1,6 @@
 # Hello!
 
-Welcome to my github! This repo also doubles as my person website which I want to use as a sandbox and to link to my blog.
+Welcome to my github! This repo also doubles as my personal website which I want to use as a sandbox and to link to my blog.
 
 [Check it out!](https://noel-wilson.co.uk)
 
