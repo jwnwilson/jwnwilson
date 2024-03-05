@@ -53,3 +53,7 @@
   top: 5px;
   display: block !important;
 }
+
+.zoom-container:hover {
+  cursor: pointer;
+}
