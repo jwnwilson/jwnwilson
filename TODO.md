@@ -3,3 +3,4 @@
 - Add social media icons to circuit design
 - Small screen technology not fitting and icons overlap
 - Fill out circuit design 
+- Add header with links
